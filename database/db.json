@@ -1,0 +1,782 @@
+{
+  "users": [
+    {
+      "username": "amit_sharmaa",
+      "password": "user@123",
+      "email": "amit.sharma@example.com",
+      "DOB": "1995-05-15",
+      "state": "Rajasthan",
+      "role": "Admin",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "username": "priya_verma",
+      "password": "priya#2024",
+      "email": "priya.v@example.com",
+      "DOB": "1998-11-22",
+      "state": "Maharashtra",
+      "role": "Editor"
+    },
+    {
+      "id": "3",
+      "username": "rahul_tech",
+      "password": "pass.rahul",
+      "email": "rahul.tech@example.com",
+      "DOB": "1992-08-10",
+      "state": "Delhi",
+      "role": "User"
+    },
+    {
+      "id": "4",
+      "username": "sneha_jain",
+      "password": "sneha_secure",
+      "email": "sneha.j@example.com",
+      "DOB": "2000-01-30",
+      "state": "Gujarat",
+      "role": "User"
+    },
+    {
+      "id": "5",
+      "username": "vicky_raj",
+      "password": "vicky.99",
+      "email": "vicky.raj@example.com",
+      "DOB": "1997-03-12",
+      "state": "Punjab",
+      "role": "Moderator"
+    },
+    {
+      "id": "6",
+      "username": "neha_kapoor",
+      "password": "neha_pass",
+      "email": "neha.k@example.com",
+      "DOB": "1994-07-25",
+      "state": "Haryana",
+      "role": "User"
+    },
+    {
+      "id": "7",
+      "username": "manoj_kumar",
+      "password": "manoj@786",
+      "email": "manoj.k@example.com",
+      "DOB": "1990-12-05",
+      "state": "Uttar Pradesh",
+      "role": "Admin"
+    },
+    {
+      "id": "8",
+      "username": "ishita_roy",
+      "password": "ishita.roy",
+      "email": "ishita.r@example.com",
+      "DOB": "1999-09-18",
+      "state": "West Bengal",
+      "role": "User"
+    },
+    {
+      "id": "d776",
+      "username": "bhawani soni ",
+      "password": "asdfg",
+      "email": "bhawani@gmail.com",
+      "DOB": "2006-02-09",
+      "state": "rajasthan",
+      "role": "Admin"
+    },
+    {
+      "id": "bd58",
+      "username": "bhawani",
+      "password": "asdfg",
+      "email": "b@gmail.com",
+      "DOB": "2006-02-09",
+      "state": "rajasthan",
+      "role": "User"
+    },
+    {
+      "id": "6ec9",
+      "username": "bhawani s soni ",
+      "password": "zxcvb",
+      "email": "bhawani@gmail.com",
+      "DOB": "2020-01-01",
+      "state": "rajasthan",
+      "role": "User"
+    }
+  ],
+  "apiData": [
+    {
+      "category": "Earbuds",
+      "metadata": {
+        "count": 10,
+        "updated": "2026-01-06",
+        "description": "Premium true wireless earbuds for music, calls and gaming."
+      },
+      "products": [
+        {
+          "id": 1,
+          "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800&auto=format&fit=crop",
+          "title": "Sony WF-1000XM4",
+          "desc": "Industry-leading noise canceling truly wireless earbuds with Alexa built-in.",
+          "price": 19990,
+          "stock": 12,
+          "brand": "Sony",
+          "rating": 4.8,
+          "keywords": [
+            "sony",
+            "earbuds",
+            "noise-canceling"
+          ],
+          "tags": [
+            "Best Seller"
+          ],
+          "features": [
+            "Hi-Res Audio",
+            "Speak-to-Chat",
+            "8H Battery (ANC On)"
+          ]
+        },
+        {
+          "id": 2,
+          "image": "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?q=80&w=800&auto=format&fit=crop",
+          "title": "Apple AirPods Pro",
+          "desc": "Active Noise Cancellation for immersive sound. Transparency mode for hearing what’s happening.",
+          "price": 24900,
+          "stock": 15,
+          "brand": "Apple",
+          "rating": 4.9,
+          "keywords": [
+            "apple",
+            "airpods",
+            "pro"
+          ],
+          "tags": [
+            "Top Rated"
+          ],
+          "features": [
+            "Spatial Audio",
+            "MagSafe Charging",
+            "Water Resistant"
+          ]
+        },
+        {
+          "id": 3,
+          "image": "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?q=80&w=800&auto=format&fit=crop",
+          "title": "Samsung Galaxy Buds Pro",
+          "desc": "Intelligent ANC that lets you seamlessly switch between noise canceling and fully adjustable ambient sound.",
+          "price": 15990,
+          "stock": 10,
+          "brand": "Samsung",
+          "rating": 4.6,
+          "keywords": [
+            "samsung",
+            "buds",
+            "galaxy"
+          ],
+          "tags": [
+            "Trending"
+          ],
+          "features": [
+            "2-way Speakers",
+            "Auto Switch",
+            "18H Battery"
+          ]
+        },
+        {
+          "id": 4,
+          "image": "https://images.unsplash.com/photo-1598331668826-20cecc596b86?q=80&w=800&auto=format&fit=crop",
+          "title": "Bose QuietComfort Earbuds",
+          "desc": "The world’s most effective noise cancelling and high-fidelity audio.",
+          "price": 26990,
+          "stock": 18,
+          "brand": "Bose",
+          "rating": 4.7,
+          "keywords": [
+            "bose",
+            "comfort",
+            "premium"
+          ],
+          "tags": [
+            "Premium Choice"
+          ],
+          "features": [
+            "StayHear Max Tips",
+            "Simple Touch Controls",
+            "6H Battery"
+          ]
+        },
+        {
+          "id": 5,
+          "image": "https://loremflickr.com/g/600/600/earbuds,silver",
+          "title": "Sennheiser Momentum TW 3",
+          "desc": "Ultimate listening experience with high-fidelity sound and adaptive noise cancellation.",
+          "price": 21990,
+          "stock": 7,
+          "brand": "Sennheiser",
+          "rating": 4.5,
+          "keywords": [
+            "sennheiser",
+            "momentum",
+            "audiophile"
+          ],
+          "tags": [
+            "Expert Pick"
+          ],
+          "features": [
+            "aptX Adaptive",
+            "Qi Wireless Charging",
+            "IPX4 Rated"
+          ]
+        },
+        {
+          "id": 6,
+          "image": "https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?q=80&w=800&auto=format&fit=crop",
+          "title": "Jabra Elite 7 Pro",
+          "desc": "Advanced audio engineering with Jabra MultiSensor Voice for revolutionary call performance.",
+          "price": 14999,
+          "stock": 9,
+          "brand": "Jabra",
+          "rating": 4.4,
+          "keywords": [
+            "jabra",
+            "calls",
+            "office"
+          ],
+          "tags": [
+            "Best for Calls"
+          ],
+          "features": [
+            "Adjustable ANC",
+            "Multipoint Connect",
+            "Ultra Compact"
+          ]
+        },
+        {
+          "id": 7,
+          "image": "https://loremflickr.com/g/600/600/pixelbuds,white",
+          "title": "Google Pixel Buds Pro",
+          "desc": "Premium wireless earbuds with Active Noise Cancellation and immersive sound quality.",
+          "price": 18990,
+          "stock": 11,
+          "brand": "Google",
+          "rating": 4.5,
+          "keywords": [
+            "google",
+            "pixel",
+            "assistant"
+          ],
+          "tags": [
+            "Smart Choice"
+          ],
+          "features": [
+            "Silent Seal",
+            "Volume EQ",
+            "Wireless Charging"
+          ]
+        },
+        {
+          "id": 8,
+          "image": "https://loremflickr.com/g/600/600/earbuds,beats",
+          "title": "Beats Studio Buds",
+          "desc": "True wireless noise cancelling earbuds designed for powerful, balanced sound.",
+          "price": 12990,
+          "stock": 5,
+          "brand": "Beats",
+          "rating": 4.3,
+          "keywords": [
+            "beats",
+            "apple",
+            "sports"
+          ],
+          "tags": [
+            "Stylish"
+          ],
+          "features": [
+            "One-touch Pairing",
+            "Dual Beamforming Mics",
+            "8H Playtime"
+          ]
+        },
+        {
+          "id": 9,
+          "image": "https://loremflickr.com/g/600/600/earbuds,transparent",
+          "title": "Nothing Ear (2)",
+          "desc": "Ultra-lightweight design with 11.6mm custom driver and 24-bit Hi-Res audio.",
+          "price": 9999,
+          "stock": 20,
+          "brand": "Nothing",
+          "rating": 4.4,
+          "keywords": [
+            "nothing",
+            "ear2",
+            "transparent"
+          ],
+          "tags": [
+            "Futuristic"
+          ],
+          "features": [
+            "Transparent Design",
+            "Personal Sound Profile",
+            "Dual Connection"
+          ]
+        },
+        {
+          "id": 10,
+          "image": "https://images.unsplash.com/photo-1585565804112-f201f68c48b4?q=80&w=800&auto=format&fit=crop",
+          "title": "Skullcandy Grind Fuel",
+          "desc": "True wireless earbuds with Skull-iQ Smart Feature Technology for voice control.",
+          "price": 7499,
+          "stock": 16,
+          "brand": "Skullcandy",
+          "rating": 4.2,
+          "keywords": [
+            "skullcandy",
+            "bass",
+            "voice-control"
+          ],
+          "tags": [
+            "New Launch"
+          ],
+          "features": [
+            "Voice Control",
+            "Personal Sound",
+            "Find with Tile"
+          ]
+        }
+      ],
+      "id": "db36"
+    },
+    {
+      "category": "Headphones",
+      "metadata": {
+        "count": 10,
+        "updated": "2026-01-06",
+        "description": "Wireless and over-ear headphones for immersive sound."
+      },
+      "products": [
+        {
+          "id": 11,
+          "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop",
+          "title": "Sony WH-1000XM5",
+          "desc": "Magnificent sound, engineered to perfection with two processors controlling 8 microphones.",
+          "price": 29990,
+          "stock": 8,
+          "brand": "Sony",
+          "rating": 4.9,
+          "keywords": [
+            "sony",
+            "headphones",
+            "anc"
+          ],
+          "tags": [
+            "Premium"
+          ],
+          "features": [
+            "Auto NC Optimizer",
+            "Speak-to-Chat",
+            "30H Battery"
+          ]
+        },
+        {
+          "id": 12,
+          "image": "https://loremflickr.com/g/600/600/headphones,marshall",
+          "title": "Marshall Monitor II",
+          "desc": "Advanced active noise cancelling technology that blocks out the noise, letting you focus on the music.",
+          "price": 24999,
+          "stock": 10,
+          "brand": "Marshall",
+          "rating": 4.7,
+          "keywords": [
+            "marshall",
+            "rock",
+            "classic"
+          ],
+          "tags": [
+            "Iconic Design"
+          ],
+          "features": [
+            "Custom Tuned Drivers",
+            "Collapsible Design",
+            "30H Wireless"
+          ]
+        },
+        {
+          "id": 13,
+          "image": "https://loremflickr.com/g/600/600/headphones,studio",
+          "title": "Audio-Technica ATH-M50xBT2",
+          "desc": "Brings the coveted M50x studio sound to a wireless, on-the-go design.",
+          "price": 18500,
+          "stock": 14,
+          "brand": "Audio-Technica",
+          "rating": 4.8,
+          "keywords": [
+            "studio",
+            "audio-technica",
+            "pro"
+          ],
+          "tags": [
+            "Studio Standard"
+          ],
+          "features": [
+            "Proprietary Drivers",
+            "Low Latency Mode",
+            "50H Battery"
+          ]
+        },
+        {
+          "id": 14,
+          "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=800&auto=format&fit=crop",
+          "title": "Bose QuietComfort 45",
+          "desc": "The perfect balance of quiet, comfort, and sound. World-class noise cancellation for peace.",
+          "price": 29900,
+          "stock": 18,
+          "brand": "Bose",
+          "rating": 4.7,
+          "keywords": [
+            "bose",
+            "comfort",
+            "travel"
+          ],
+          "tags": [
+            "Travel Best"
+          ],
+          "features": [
+            "Acoustic Noise Cancelling",
+            "Aware Mode",
+            "24H Battery"
+          ]
+        },
+        {
+          "id": 15,
+          "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=800&auto=format&fit=crop",
+          "title": "Sennheiser HD 660S2",
+          "desc": "Audiophile-grade open-back headphones for a natural, relaxed sound with deep bass.",
+          "price": 49990,
+          "stock": 6,
+          "brand": "Sennheiser",
+          "rating": 4.9,
+          "keywords": [
+            "sennheiser",
+            "audiophile",
+            "open-back"
+          ],
+          "tags": [
+            "High Fidelity"
+          ],
+          "features": [
+            "Vented Magnet System",
+            "Lightweight Voice Coil",
+            "Premium Build"
+          ]
+        },
+        {
+          "id": 16,
+          "image": "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?q=80&w=800&auto=format&fit=crop",
+          "title": "Beats Studio3 Wireless",
+          "desc": "Premium wireless noise cancelling headphones with Apple W1 chip and Pure ANC.",
+          "price": 22900,
+          "stock": 9,
+          "brand": "Beats",
+          "rating": 4.4,
+          "keywords": [
+            "beats",
+            "apple",
+            "bass"
+          ],
+          "tags": [
+            "Popular"
+          ],
+          "features": [
+            "Pure ANC",
+            "Fast Fuel",
+            "Real-time Calibration"
+          ]
+        },
+        {
+          "id": 17,
+          "image": "https://loremflickr.com/g/600/600/headphones,black",
+          "title": "Skullcandy Hesh ANC",
+          "desc": "The easiest way to get active noise cancellation without breaking the bank.",
+          "price": 10999,
+          "stock": 7,
+          "brand": "Skullcandy",
+          "rating": 4.2,
+          "keywords": [
+            "skullcandy",
+            "anc",
+            "youth"
+          ],
+          "tags": [
+            "Value for Money"
+          ],
+          "features": [
+            "Ambient Mode",
+            "Flat-folding",
+            "22H Battery"
+          ]
+        },
+        {
+          "id": 18,
+          "image": "https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=800&auto=format&fit=crop",
+          "title": "Master & Dynamic MW65",
+          "desc": "Crafted from premium leather and lightweight aluminum for a luxurious listening experience.",
+          "price": 42000,
+          "stock": 4,
+          "brand": "Master & Dynamic",
+          "rating": 4.6,
+          "keywords": [
+            "luxury",
+            "leather",
+            "design"
+          ],
+          "tags": [
+            "Luxury Choice"
+          ],
+          "features": [
+            "Beryllium Drivers",
+            "Dual Mic ANC",
+            "Anodized Aluminum"
+          ]
+        },
+        {
+          "id": 19,
+          "image": "https://loremflickr.com/g/600/600/gaming,headset",
+          "title": "Razer BlackShark V2",
+          "desc": "Esports gaming headset with Triforce Titanium 50mm drivers and USB sound card.",
+          "price": 9999,
+          "stock": 12,
+          "brand": "Razer",
+          "rating": 4.5,
+          "keywords": [
+            "gaming",
+            "esports",
+            "razer"
+          ],
+          "tags": [
+            "Gaming Pro"
+          ],
+          "features": [
+            "THX Spatial Audio",
+            "HyperClear Mic",
+            "Ultra-soft Cushions"
+          ]
+        },
+        {
+          "id": 20,
+          "image": "https://loremflickr.com/g/600/600/headphones,pro",
+          "title": "AKG K702",
+          "desc": "Reference class open-back studio headphones for precision listening, mixing and mastering.",
+          "price": 21000,
+          "stock": 10,
+          "brand": "AKG",
+          "rating": 4.7,
+          "keywords": [
+            "akg",
+            "studio",
+            "mastering"
+          ],
+          "tags": [
+            "Professional"
+          ],
+          "features": [
+            "Varimotion Diaphragm",
+            "Flat-wire Voice Coil",
+            "3D-Form Pads"
+          ]
+        }
+      ],
+      "id": "aac5"
+    }
+  ],
+  "allProducts": [
+    {
+      "id": "1",
+      "title": "Sony WF-1000XM4",
+      "price": 19990,
+      "brand": "Sony",
+      "category": "Earbuds"
+    },
+    {
+      "id": "2",
+      "title": "Apple AirPods Pro",
+      "price": 24900,
+      "brand": "Apple",
+      "category": "Earbuds"
+    },
+    {
+      "id": "3",
+      "title": "Samsung Galaxy Buds Pro",
+      "price": 15990,
+      "brand": "Samsung",
+      "category": "Earbuds"
+    },
+    {
+      "id": "4",
+      "title": "Bose QuietComfort Earbuds",
+      "price": 26990,
+      "brand": "Bose",
+      "category": "Earbuds"
+    },
+    {
+      "id": "5",
+      "title": "Sennheiser Momentum TW 3",
+      "price": 21990,
+      "brand": "Sennheiser",
+      "category": "Earbuds"
+    },
+    {
+      "id": "6",
+      "title": "Jabra Elite 7 Pro",
+      "price": 14999,
+      "brand": "Jabra",
+      "category": "Earbuds"
+    },
+    {
+      "id": "7",
+      "title": "Google Pixel Buds Pro",
+      "price": 18990,
+      "brand": "Google",
+      "category": "Earbuds"
+    },
+    {
+      "id": "8",
+      "title": "Beats Studio Buds",
+      "price": 12990,
+      "brand": "Beats",
+      "category": "Earbuds"
+    },
+    {
+      "id": "9",
+      "title": "Nothing Ear (2)",
+      "price": 9999,
+      "brand": "Nothing",
+      "category": "Earbuds"
+    },
+    {
+      "id": "10",
+      "title": "Skullcandy Grind Fuel",
+      "price": 7499,
+      "brand": "Skullcandy",
+      "category": "Earbuds"
+    },
+    {
+      "id": "11",
+      "title": "Sony WH-1000XM5",
+      "price": 29990,
+      "brand": "Sony",
+      "category": "Headphones"
+    },
+    {
+      "id": "12",
+      "title": "Marshall Monitor II",
+      "price": 24999,
+      "brand": "Marshall",
+      "category": "Headphones"
+    },
+    {
+      "id": "13",
+      "title": "Audio-Technica ATH-M50xBT2",
+      "price": 18500,
+      "brand": "Audio-Technica",
+      "category": "Headphones"
+    },
+    {
+      "id": "14",
+      "title": "Bose QuietComfort 45",
+      "price": 29900,
+      "brand": "Bose",
+      "category": "Headphones"
+    },
+    {
+      "id": "15",
+      "title": "Sennheiser HD 660S2",
+      "price": 49990,
+      "brand": "Sennheiser",
+      "category": "Headphones"
+    },
+    {
+      "id": "16",
+      "title": "Beats Studio3 Wireless",
+      "price": 22900,
+      "brand": "Beats",
+      "category": "Headphones"
+    },
+    {
+      "id": "17",
+      "title": "Skullcandy Hesh ANC",
+      "price": 10999,
+      "brand": "Skullcandy",
+      "category": "Headphones"
+    },
+    {
+      "id": "18",
+      "title": "Master & Dynamic MW65",
+      "price": 42000,
+      "brand": "Master & Dynamic",
+      "category": "Headphones"
+    },
+    {
+      "id": "19",
+      "title": "Razer BlackShark V2",
+      "price": 9999,
+      "brand": "Razer",
+      "category": "Headphones"
+    },
+    {
+      "id": "20",
+      "title": "AKG K702",
+      "price": 21000,
+      "brand": "AKG",
+      "category": "Headphones"
+    }
+  ],
+  "orders": [
+    {
+      "id": "a1ca",
+      "customerName": "PAWAN KUMAR PANDIA",
+      "mobile": "9876543211",
+      "address": "PRATIK NAGAR, cccedqefqefdqefqf, Jaipur, Rajasthan - 302021",
+      "products": [
+        {
+          "title": "Sennheiser Momentum TW 3",
+          "price": 21990,
+          "qty": 2,
+          "image": "https://loremflickr.com/g/600/600/earbuds,silver"
+        },
+        {
+          "title": "Bose QuietComfort Earbuds",
+          "price": 26990,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1598331668826-20cecc596b86?q=80&w=800&auto=format&fit=crop"
+        },
+        {
+          "title": "Samsung Galaxy Buds Pro",
+          "price": 15990,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?q=80&w=800&auto=format&fit=crop"
+        },
+        {
+          "title": "Apple AirPods Pro",
+          "price": 24900,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?q=80&w=800&auto=format&fit=crop"
+        },
+        {
+          "title": "Sony WF-1000XM4",
+          "price": 19990,
+          "qty": 1,
+          "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800&auto=format&fit=crop"
+        }
+      ],
+      "amount": 132144,
+      "status": "Accepted",
+      "date": "15/02/2026"
+    },
+    {
+      "id": "3c1a",
+      "customerName": "bhawani soni 6m",
+      "mobile": "9876543211",
+      "address": "Bhomiya nagar , joshi marg , jhotwara, bhawani , Jaipur, Rajasthan - 302012",
+      "productTitle": "Samsung Galaxy Buds Pro (x1)",
+      "amount": 16089,
+      "status": "Accepted",
+      "date": "06/03/2026"
+    }
+  ]
+}

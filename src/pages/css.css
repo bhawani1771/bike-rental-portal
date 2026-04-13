@@ -1,0 +1,179 @@
+/* --- Global Theme & Fibonacci Variables --- */
+:root {
+  --primary-bg: #0f172a;        /* Deep Slate Blue */
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --accent-color: #38bdf8;      /* Sky Blue */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  /* Fibonacci Based Spacing (Approx) */
+  --f-8: 8px;
+  --f-13: 13px;
+  --f-21: 21px;
+  --f-34: 34px;
+  --f-55: 55px;
+  --f-89: 89px;
+}
+
+/* --- Global Styles --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+}
+
+/* --- Common Animations --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   1. SERVICE SECTION STYLES
+   ========================================== */
+.service-container {
+  padding: var(--f-89) var(--f-34);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-title {
+  font-size: var(--f-34);
+  margin-bottom: var(--f-55);
+  text-align: center;
+  color: var(--text-main);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--f-21);
+  max-width: 1200px;
+  width: 100%;
+}
+
+.service-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--f-13);
+  padding: var(--f-34);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.service-icon {
+  font-size: var(--f-34);
+  margin-bottom: var(--f-13);
+}
+
+.service-card h3 {
+  color: var(--accent-color);
+  margin-bottom: var(--f-8);
+}
+
+.service-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   2. ABOUT SECTION STYLES
+   ========================================== */
+.about-container {
+  padding: var(--f-89) var(--f-34);
+  display: flex;
+  flex-direction: column;
+  gap: var(--f-55);
+}
+
+.about-hero {
+  text-align: center;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.about-hero h1 {
+  font-size: var(--f-55);
+  background: linear-gradient(90deg, #fff, var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--f-13);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1.618fr 1fr; /* Fibonacci Ratio */
+  gap: var(--f-55);
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: var(--f-34);
+  color: var(--accent-color);
+  margin-bottom: var(--f-21);
+}
+
+.about-text p {
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: var(--f-21);
+}
+
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--f-21);
+}
+
+.stat-card {
+  background: var(--card-bg);
+  padding: var(--f-21);
+  border-radius: var(--f-13);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: 0.4s ease;
+}
+
+.stat-card:hover {
+  transform: translateX(10px);
+  border-color: var(--accent-color);
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.stat-card h3 {
+  font-size: var(--f-34);
+  color: var(--accent-color);
+  margin: 0;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-hero h1 {
+    font-size: var(--f-34);
+  }
+  
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}

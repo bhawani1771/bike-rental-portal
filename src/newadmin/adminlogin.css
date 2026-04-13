@@ -1,0 +1,90 @@
+/* --- Login Page Styles --- */
+.login-full-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f172a; /* Deep Dark Background */
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.login-logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.login-logo span {
+    color: #ff9800; /* Theme Orange */
+}
+
+.login-card h2 {
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #ff9800;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 152, 0, 0.1);
+}
+
+.login-btn {
+    width: 100%;
+    background: #1e293b;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    border: 1px solid #ff9800;
+}
+
+.login-btn:hover {
+    background: #ff9800;
+    color: #1e293b;
+    transform: translateY(-2px);
+}
