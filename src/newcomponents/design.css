@@ -425,7 +425,7 @@
 */
 
  .box {
-     width: 100%;
+     width: 96.85%;
      min-height: 85vh;
      background: url('../assets/images/bannerimg.jpg');
      background-size: cover;
@@ -1045,7 +1045,7 @@
 
 
 .main-containar {
-    width: 100%; /* Full width better lagta hai */
+    width: 90%; /* Full width better lagta hai */
     min-height: 600px;
     background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1)), 
                 url('../assets/images/banner2imgg.png'); 
