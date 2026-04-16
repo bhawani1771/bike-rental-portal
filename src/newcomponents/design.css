@@ -1,818 +1,1269 @@
-html {
-  scroll-behavior: smooth;
+ html {
+     scroll-behavior: smooth;
+ }
+
+ body {
+     background-color: white;
+ }
+
+ /* header.jsx css */
+
+
+
+
+
+ .navbar {
+     height: 70px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0 50px;
+     background-color: #000000;
+     color: #ffffff;
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+ }
+
+ .navbar-in1 .logo-img {
+     width: 120px;
+     height: auto;
+     cursor: pointer;
+     transition: transform 0.3s ease;
+ }
+
+ .navbar-in1 .logo-img:hover {
+     transform: scale(1.05);
+ }
+
+ .navbar-in2 ul {
+     display: flex;
+     list-style: none;
+     gap: 30px;
+     align-items: center;
+     margin: 0;
+     padding: 0;
+ }
+
+ .nav-link {
+     text-decoration: none;
+     font-size: 15px;
+     font-weight: 600;
+     color: #ffffff !important;
+     display: inline-block;
+     padding: 5px 0 !important;
+     margin: 0 !important;
+     border: none !important;
+     background: transparent !important;
+     outline: none !important;
+     position: relative;
+     transition: color 0.3s ease;
+     box-sizing: border-box;
+ }
+
+ .nav-link:hover,
+ .nav-link.active {
+     color: #f38222 !important;
+     border: none !important;
+ }
+
+ .nav-link::after {
+     content: '';
+     position: absolute;
+     bottom: -2px;
+     left: 0;
+     width: 0;
+     height: 2px;
+     background-color: #f38222;
+     transition: width 0.3s ease;
+     pointer-events: none;
+ }
+
+ .nav-link:hover::after,
+ .nav-link.active::after {
+     width: 100%;
+ }
+
+ #faq-section {
+     scroll-margin-top: 100px;
+     /* Isse Header FAQ ke title ko chupayega nahi */
+ }
+
+ .navbar-in3 {
+     display: flex;
+     align-items: center;
+     gap: 20px;
+     position: relative;
+ }
+
+ .src-inp {
+     padding: 8px 15px;
+     border-radius: 20px;
+     border: 1px solid #333;
+     background: #1a1a1a;
+     color: white;
+     font-size: 14px;
+     outline: none;
+     width: 180px;
+     transition: 0.3s;
+ }
+
+ .src-inp:focus {
+     border-color: #f38222;
+     width: 220px;
+ }
+
+ .navbar-in3 a {
+     text-decoration: none;
+     font-size: 18px;
+     transition: transform 0.3s;
+ }
+
+ .navbar-in3 a:hover {
+     transform: scale(1.2);
+ }
+
+ .login-btn {
+     background-color: #f38222;
+     color: #ffffff;
+     border: none;
+     padding: 8px 25px;
+     border-radius: 6px;
+     font-weight: 700;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     text-transform: uppercase;
+     font-size: 13px;
+ }
+
+ .login-btn:hover {
+     background-color: #e67616;
+     box-shadow: 0 0 15px rgba(243, 130, 34, 0.4);
+     transform: translateY(-2px);
+ }
+
+ .search-list {
+     position: absolute;
+     top: 50px;
+     left: 0;
+     width: 220px;
+     background-color: #1a1a1a;
+     border: 1px solid #333;
+     border-radius: 8px;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+     z-index: 2000;
+     max-height: 250px;
+     overflow-y: auto;
+     padding: 5px 0;
+ }
+
+ .search-item {
+     display: block;
+     padding: 10px 15px;
+     color: #ffffff;
+     text-decoration: none;
+     font-size: 14px;
+     font-weight: 500;
+     transition: all 0.2s ease;
+     border-bottom: 1px solid #2a2a2a;
+ }
+
+ .search-item:last-child {
+     border-bottom: none;
+ }
+
+ .search-item:hover {
+     background-color: #f38222;
+     color: #ffffff;
+     padding-left: 20px;
+ }
+
+ .search-list::-webkit-scrollbar {
+     width: 5px;
+ }
+
+ .search-list::-webkit-scrollbar-thumb {
+     background: #333;
+     border-radius: 10px;
+ }
+
+
+
+ /* responsive */
+
+
+
+ @media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 3%;
+    }
+    .src-inp {
+        width: 150px;
+    }
+    .src-inp:focus {
+        width: 180px;
+    }
+    .navbar-in2 ul {
+        gap: 15px;
+    }
 }
 
-body{
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap; /* Elements ko niche lane ke liye */
+        padding: 10px 15px;
+    }
+
+    .navbar-in1 {
+        order: 1; /* Logo left mein */
+    }
+
+    .navbar-in3 {
+        order: 2; /* Search & Profile right mein */
+    }
+
+    /* Links ko ek scrollable line mein dala hai mobile ke liye */
+    .navbar-in2 {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+        overflow-x: auto; /* Agar links zyada hain toh scroll honge */
+        padding-bottom: 5px;
+    }
+
+    .navbar-in2 ul {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+        white-space: nowrap; /* Links line break na karein */
+    }
+
+    .src-inp {
+        width: 120px;
+    }
+
+    .src-inp:focus {
+        width: 140px;
+    }
+
+    /* Search Dropdown position fix for mobile */
+    .search-list {
+        width: 200px;
+        right: 0;
+        top: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        height: 30px; /* Chota logo mobile par */
+    }
+
+    .navbar-in3 {
+        gap: 8px;
+    }
+
+    .src-inp {
+        display: none; /* Bahut chote phones par input chhupa sakte hain ya icon de sakte hain */
+    }
+
+    /* Agar input dikhana hai toh phone icon ya call icon ko adjust karein */
+    .navbar-in3 a[href^="tel"] {
+        font-size: 18px;
+    }
+    
+    .profile-popup {
+        right: -10px;
+        width: 180px;
+    }
+}
+
+
+
+
+
+
+ /* profile css  */
+
+
+
+ /* --- Profile Area Container --- */
+ .profile-wrapper {
+     margin-left: 20px;
+     display: inline-block;
+     z-index: 100;
+     /* Taaki popup sabke upar dikhe */
+ }
+
+ /* --- Round Profile Button (Jisme 'B' dikhega) --- */
+ .profile-icon-btn {
+     background-color: #f38222;
+     /* Aapka Orange Theme */
+     color: white;
+     border: none;
+     width: 42px;
+     height: 42px;
+     border-radius: 50%;
+     /* Gol karne ke liye */
+     cursor: pointer;
+     font-size: 18px;
+     font-weight: 700;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+     transition: all 0.3s ease;
+ }
+
+ .profile-icon-btn:hover {
+     transform: scale(1.05);
+     background-color: #000;
+     /* Hover par black transition */
+ }
+
+ /* --- Floating Profile Popup --- */
+ .profile-popup {
+     position: absolute;
+     top: 55px;
+     /* Button ke theek niche */
+     right: 0;
+     /* Right side se align */
+     width: 220px;
+     background-color: #fff;
+     border-radius: 12px;
+     padding: 20px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+     /* Premium shadow */
+     border: 1px solid #eee;
+     text-align: center;
+     animation: fadeIn 0.3s ease;
+     /* Khulte waqt halka animation */
+ }
+
+ /* @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(-10px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ } */
+
+ /* --- User Info Text inside Popup --- */
+ .user-info p {
+     margin: 5px 0;
+     color: #333;
+ }
+
+ .user-info hr {
+     margin: 15px 0;
+     border: 0;
+     border-top: 1px solid #eee;
+ }
+
+ /* --- Logout & Login Buttons inside Popup --- */
+ .logout-btn {
+     width: 100%;
+     padding: 10px;
+     background-color: #000;
+     color: white;
+     border: none;
+     border-radius: 6px;
+     font-weight: 600;
+     cursor: pointer;
+     transition: 0.3s;
+ }
+
+ .logout-btn:hover {
+     background-color: #f38222;
+ }
+
+ .pop-login-btn {
+     display: block;
+     margin-top: 10px;
+     background-color: #f38222;
+     color: white;
+     text-decoration: none;
+     padding: 10px;
+     border-radius: 6px;
+     font-weight: 600;
+     font-size: 14px;
+ }
+
+ .pop-login-btn:hover {
+     background-color: #000;
+ }
+
+ .login-prompt p {
+     font-size: 14px;
+     color: #666;
+     margin-bottom: 10px;
+ }
+
+
+
+
+
+
+ /* banner.jsx ki css */
+
+
+
+
+ /* Color Palette:
+   Orange: #FF8C00 (Darker Orange for text/icons)
+   Light Orange: #FFA500 (Main Theme Orange)
+   Black: #1A1A1A
+   White: #FFFFFF
+*/
+
+ .box {
+     width: 100%;
+     min-height: 85vh;
+     background: url('../assets/images/bannerimg.jpg');
+     background-size: cover;
+     background-position: center;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     padding: 20px;
+     margin: 0px;
+     /* margin-top: 0px; */
+     color: white;
+ }
+
+ /* Header Text Section */
+ .box-in1 {
+     text-align: center;
+     margin-bottom: 40px;
+     animation: fadeInDown 1s ease-out;
+ }
+
+ .box-in1 h1 {
+     color: #1a1a1ac1;
+     font-size: 3rem;
+     font-weight: 800;
+     margin-bottom: 10px;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+ }
+
+ .box-in1 p {
+     font-size: 1.2rem;
+     color: #ffa704;
+     position: relative;
+     left: -240px;
+     top: -10px;
+     /* Light Orange */
+     font-weight: 500;
+ }
+
+ /* Booking Card Container */
+ .box-in2 {
+     background: rgba(255, 255, 255, 0.1);
+     backdrop-filter: blur(10px);
+     /* Glassmorphism */
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     padding: 30px;
+     border-radius: 20px;
+     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+     width: 100%;
+     max-width: 1000px;
+     animation: fadeInUp 1s ease-out;
+ }
+
+ .booking-inps {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 20px;
+     align-items: flex-end;
+ }
+
+ /* Input Fields & Labels */
+ .info-input {
+     display: flex;
+     flex-direction: column;
+     gap: 8px;
+ }
+
+ label {
+     font-size: 0.9rem;
+     color: #FFA500;
+     font-weight: 600;
+     text-transform: uppercase;
+ }
+
+ .info-input select,
+ .info-input input {
+     padding: 12px;
+     border-radius: 8px;
+     border: 2px solid transparent;
+     background: white;
+     color: #1A1A1A;
+     font-size: 1rem;
+     outline: none;
+     transition: all 0.3s ease;
+ }
+
+ .info-input select:focus,
+ .info-input input:focus {
+     border-color: #FFA500;
+     box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
+ }
+
+ /* Find Bike Button */
+ .find-btn {
+     background: #FFA500;
+     color: black;
+     border: none;
+     padding: 15px 30px;
+     border-radius: 8px;
+     font-size: 1.1rem;
+     font-weight: 700;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     text-transform: uppercase;
+     box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+ }
+
+ .find-btn:hover {
+     background: white;
+     color: #FFA500;
+     transform: translateY(-3px);
+     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+ }
+
+ /* Bottom Heading */
+ .content {
+     text-align: center;
+     padding: 40px 20px;
+     background: #1A1A1A;
+     color: white;
+     margin: 0;
+     font-size: 1.5rem;
+     border-bottom: 4px solid #FFA500;
+ }
+
+ /* Animations */
+ @keyframes fadeInUp {
+     from {
+         opacity: 0;
+         transform: translateY(30px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ @keyframes fadeInDown {
+     from {
+         opacity: 0;
+         transform: translateY(-30px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ /* --- Responsive Design (Mobile & Tablet) --- */
+
+ @media (max-width: 768px) {
+     .box-in1 h1 {
+         font-size: 2rem;
+     }
+
+     .box-in2 {
+         padding: 20px;
+         width: 95%;
+     }
+
+     .booking-inps {
+         grid-template-columns: 1fr;
+         /* Single column for mobile */
+     }
+
+     .find-btn {
+         width: 100%;
+         margin-top: 10px;
+     }
+
+     .content {
+         font-size: 1.1rem;
+     }
+ }
+
+
+
+
+
+ /* productcard.jsx ki css */
+
+ 
+
+
+
+
+ /* Product Page Main Container */
+.product-page {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-page .title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Grid Layout */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Card Styling */
+.card-box {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Isse content vertical sequence mein rahega */
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    height: 100%; /* Saare cards ek barabar height ke dikhenge */
+}
+
+.card-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: #ffa500;
+}
+
+/* Brand Name Tag */
+.brand-name {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #000;
+    color: #ffa500;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 4px;
+    z-index: 1;
+    text-transform: uppercase;
+}
+
+/* Product Image */
+.p-img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* Bike ki photo kategi nahi */
+    padding: 20px;
+    background: #fdfdfd;
+    transition: transform 0.4s ease;
+}
+
+.card-box:hover .p-img {
+    transform: scale(1.08);
+}
+
+/* Content Area */
+.card-box .content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ye content ko card ki bachi hui jagah fill karne dega */
+}
+
+.card-box .content h3 {
+    font-size: 1.3rem;
+    color: #000;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* Pricing Section */
+.price-info {
+    margin-bottom: 20px;
+    flex-grow: 1; /* Isse "Book Now" button hamesha bottom par push ho jayega */
+}
+
+.amt {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.show-bold-and-green {
+    font-size: 0.85rem;
+    color: #27ae60;
+    font-weight: 600;
+}
+
+.show-in-small-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.show-in-green {
+    color: #27ae60;
+    font-weight: 600;
+}
+
+.stock-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #ffa500;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.extra-charge {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+
+.content{
     background-color: white;
 }
 
-/* header.jsx css */
-
-.navbar {
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-  background-color: #000000;
-  color: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.navbar-in1 .logo-img {
-  width: 120px;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.navbar-in1 .logo-img:hover {
-  transform: scale(1.05);
-}
-
-.navbar-in2 ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-link {
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    color: #ffffff !important;
-    display: inline-block;
-    padding: 5px 0 !important;
-    margin: 0 !important;
-    border: none !important;
-    background: transparent !important;
-    outline: none !important;
-    position: relative;
-    transition: color 0.3s ease;
-    box-sizing: border-box;
-}
-
-.nav-link:hover, 
-.nav-link.active {
-    color: #f38222 !important;
-    border: none !important;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #f38222;
-    transition: width 0.3s ease;
-    pointer-events: none;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
+/* Book Now Button */
+.rent-btn {
     width: 100%;
-}
-
-#faq-section {
-  scroll-margin-top: 100px; /* Isse Header FAQ ke title ko chupayega nahi */
-}
-
-.navbar-in3 {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-}
-
-.src-inp {
-  padding: 8px 15px;
-  border-radius: 20px;
-  border: 1px solid #333;
-  background: #1a1a1a;
-  color: white;
-  font-size: 14px;
-  outline: none;
-  width: 180px;
-  transition: 0.3s;
-}
-
-.src-inp:focus {
-  border-color: #f38222;
-  width: 220px;
-}
-
-.navbar-in3 a {
-  text-decoration: none;
-  font-size: 18px;
-  transition: transform 0.3s;
-}
-
-.navbar-in3 a:hover {
-  transform: scale(1.2);
-}
-
-.login-btn {
-  background-color: #f38222;
-  color: #ffffff;
-  border: none;
-  padding: 8px 25px;
-  border-radius: 6px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  font-size: 13px;
-}
-
-.login-btn:hover {
-  background-color: #e67616;
-  box-shadow: 0 0 15px rgba(243, 130, 34, 0.4);
-  transform: translateY(-2px);
-}
-
-.search-list {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 220px;
-  background-color: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  z-index: 2000;
-  max-height: 250px;
-  overflow-y: auto;
-  padding: 5px 0;
-}
-
-.search-item {
-  display: block;
-  padding: 10px 15px;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-.search-item:last-child {
-  border-bottom: none;
-}
-
-.search-item:hover {
-  background-color: #f38222;
-  color: #ffffff;
-  padding-left: 20px;
-}
-
-.search-list::-webkit-scrollbar {
-  width: 5px;
-}
-
-.search-list::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 10px;
-}
-
-@media (max-width: 900px) {
-  .navbar-in2, .src-inp, .search-list {
-    display: none;
-  }
-}
-
-
-
-/* profile css  */
-
-
-
-/* --- Profile Area Container --- */
-.profile-wrapper {
-    margin-left: 20px;
-    display: inline-block;
-    z-index: 100; /* Taaki popup sabke upar dikhe */
-}
-
-/* --- Round Profile Button (Jisme 'B' dikhega) --- */
-.profile-icon-btn {
-    background-color: #f38222; /* Aapka Orange Theme */
-    color: white;
-    border: none;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%; /* Gol karne ke liye */
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.profile-icon-btn:hover {
-    transform: scale(1.05);
-    background-color: #000; /* Hover par black transition */
-}
-
-/* --- Floating Profile Popup --- */
-.profile-popup {
-    position: absolute;
-    top: 55px; /* Button ke theek niche */
-    right: 0; /* Right side se align */
-    width: 220px;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Premium shadow */
-    border: 1px solid #eee;
-    text-align: center;
-    animation: fadeIn 0.3s ease; /* Khulte waqt halka animation */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- User Info Text inside Popup --- */
-.user-info p {
-    margin: 5px 0;
-    color: #333;
-}
-
-.user-info hr {
-    margin: 15px 0;
-    border: 0;
-    border-top: 1px solid #eee;
-}
-
-/* --- Logout & Login Buttons inside Popup --- */
-.logout-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #000;
-    color: white;
+    padding: 12px;
+    background: #000;
+    color: #fff;
     border: none;
     border-radius: 6px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.rent-btn:hover {
+    background: #ffa500;
+    color: #000;
+}
+
+/* View More Button Section */
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.view-more-btn {
+    background: transparent;
+    border: 2px solid #000;
+    color: #000;
+    padding: 12px 35px;
+    font-weight: 700;
+    border-radius: 30px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.logout-btn:hover {
-    background-color: #f38222;
+.view-more-btn:hover {
+    background: #ffa500;
+    border-color: #ffa500;
+    color: #000;
+    box-shadow: 0 8px 15px rgba(255, 165, 0, 0.2);
 }
 
-.pop-login-btn {
-    display: block;
-    margin-top: 10px;
-    background-color: #f38222;
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 14px;
-}
+/* --- Responsive (Mobile Friendly) --- */
+@media (max-width: 768px) {
+    .product-page .title {
+        font-size: 1.8rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr; /* Mobile par single card dikhega */
+    }
 
-.pop-login-btn:hover {
-    background-color: #000;
-}
-
-.login-prompt p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
+    .p-img {
+        height: 180px;
+    }
 }
 
 
 
 
 
+/* productdetail.jsx css */
+
+
+
+
+/* --- Premium Product Detail Page --- */
+.product-detail-page {
+  padding: 60px 10%;
+  background: #ffffff; /* Clean white background */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-wrapper {
+  display: flex;
+  gap: 50px;
+  max-width: 1050px;
+  width: 100%;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  align-items: center;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); /* Very light professional shadow */
+}
+
+/* --- Image Section (Left) --- */
+.image-section {
+  flex: 1.2; /* Image ko thoda zyada space */
+  background: #fcfcfc;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  height: 400px;
+  border: 1px solid #f5f5f5;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Modern Watermark */
+.image-section::before {
+  content: 'BIKE';
+  position: absolute;
+  font-size: 80px;
+  font-weight: 900;
+  color: #000;
+  opacity: 0.03;
+  bottom: 5%;
+  right: -5%;
+  letter-spacing: 5px;
+}
+
+.detail-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12));
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.detail-img:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+/* --- Info Section (Right) --- */
+.info-section {
+  flex: 1;
+  text-align: left;
+}
+
+.brand-name-detail {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FF8C00; /* Subtle Orange */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.info-section h1 {
+  font-size: 34px; /* Sleek Size */
+  font-weight: 800;
+  color: #000;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+/* Price Box - Modern Sleek Look */
+.price-box {
+  background: #f9f9f9; 
+  padding: 12px 20px;
+  border-radius: 10px;
+  border-left: 4px solid #000;
+  margin-bottom: 30px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price-amt {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+}
+
+.price-box small {
+  font-size: 14px;
+  font-weight: 500;
+  color: #FF8C00;
+}
+
+/* Info List */
+.extra-info {
+  margin-bottom: 40px;
+}
+
+.extra-info p {
+  font-size: 14.5px;
+  color: #666;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f9f9f9;
+  padding-bottom: 10px;
+}
+
+.extra-info b {
+  color: #000;
+  font-weight: 600;
+  width: 150px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* --- Booking Button --- */
+.detail-book-btn {
+  padding: 16px 40px;
+  background: #000; /* Black button is more premium */
+  color: #FF8C00; /* Orange Text */
+  border: 1px solid #000;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+}
+
+.detail-book-btn:hover {
+  background: #FF8C00;
+  color: #000;
+  border-color: #FF8C00;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
+}
+
+/* Loader Styling */
+.loader {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #666;
+  margin-top: 100px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .detail-wrapper {
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .image-section {
+    width: 100%;
+    height: 300px;
+  }
+
+  .info-section h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .info-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .extra-info {
+      width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+    .product-detail-page {
+        padding: 20px 5%;
+    }
+    .detail-img {
+        max-width: 240px;
+    }
+}
 
 
 
 
 
-/* banner.jsx css */
+
+/* seconbanner.jsx css  */
 
 
 
 
-/* Main Hero Container */
-.box {
-    height: 85vh;
-    width: 93.68%;
-    background:url('../assets/images/bannerimg.jpg');
+.main-containar {
+    width: 100%; /* Full width better lagta hai */
+    min-height: 600px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1)), 
+                url('../assets/images/banner2imgg.png'); 
     background-size: cover;
     background-position: center;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 0px;
-    margin-top: 0px;
-}
-
-/* Text Section - Jo image me left side me bold dikh raha hai */
-.box-in1 {
-    max-width: 600px;
-    text-align: left;
-    margin-bottom: 50px;
-    animation: fadeIn 1s ease-in;
-}
-
-.box-in1 h1 {
-    font-size: 4.5rem;
-    font-weight: 900;
-    color: #241e1e;
-    line-height: 1;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-/* "ONN" word ko orange karne ke liye hum text change bhi kar sakte hain, 
-   par abhi ke liye main normal styling de raha hoon */
-.box-in1 p {
-    font-size: 1.2rem;
-    color: #241e1e;
-    margin-top: 10px;
-    letter-spacing: 1px;
-}
-
-.box-in2 {
-    position: absolute;
-    bottom: -30px; /* Neeche se thoda gap premium lagta hai */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1100px;
-    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Glass effect */
-    border-radius: 30px; /* Pill Shape */
-    padding: 8px; /* Inner spacing for button */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.booking-inps {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Har input section ka style */
-.location-contionair, .info-input {
-    flex: 1;
-    padding: 10px 25px;
-    display: flex;
-    flex-direction: column;
-    /* border-right: 1px solid #e0e0e0; */
-    transition: all 0.3s ease;
-    border-radius: 50px; /* Hover par rounded background dikhega */
-}
-
-.location-contionair:hover, .info-input:hover {
-    background: #f8f9fa;
-}
-
-/* Labels: Small and elegant */
-.booking-inps label {
-    font-size: 10px;
-    font-weight: 800;
-    color: #f38222; /* ONN Orange Theme */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 2px;
-}
-
-/* Dropdown & Inputs: Clean Typography */
-.info-input select, .info-input input {
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    font-weight: 600;
-    color: #222;
-    outline: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-/* Custom Dropdown Styling */
-select.info-input {
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 5px center;
-    background-size: 12px;
-}
-
-
-
-
-/* Find Bike Button: Circular & Impactful */
-.find-btn {
-    background: linear-gradient(135deg, #f38222, #fbab7e);
-    color: #fff;
-    border: none;
-    height: 60px;
-    width: 180px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(243, 130, 34, 0.3);
-    transition: all 0.3s ease;
-    margin-left: 10px;
-}
-
-.find-btn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 15px 25px rgba(243, 130, 34, 0.5);
-    background: #000; /* Dark mode hover */
-}
-
-/* Last input se divider hatao */
-.info-input:nth-child(3) {
-    border-right: none;
-}
-
-/* Focus state par glow */
-.info-input:focus-within {
-    background: #fff;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-}
-
-.content{
-  color: #241e1e;
-  margin: 70px auto;
-  text-align: center;
-  font-size: 20px;
-
-}
-
-
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
-    .box-in1 h1 { font-size: 2.5rem; }
-    .booking-inps { flex-direction: column; }
-    .box-in2 { position: relative; width: 100%; transform: none; left: 0; border-radius: 0; }
-    .find-btn { width: 100%; border-radius: 0; }
-}
-
-
-
-
-/* product.jsx ki css */
-
-
-
-
-
-.product-page {
-  padding: 50px 5%;
-  background-color: #f4f4f4;
-  min-height: 100vh;
-}
-
-.title {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 800;
-  color: #000;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  justify-items: center;
-}
-
-.card-box {
-  background: #fff;
-  width: 100%;
-  display: flex;
-  flex-direction: column; /* Content ko ek ke niche ek rakhne ke liye */
-  justify-content: space-between; /* Content ko upar-niche barabar baatne ke liye */
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  border: 1px solid #eee;
-  transition: 0.3s;
-  height: 450px; /* Saare cards ki height fixed kar di */
-  position: relative;
-}
-
-.card-box:hover {
-  transform: translateY(-8px);
-  border-color: #f38222;
-}
-
-.brand-name {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: #333;
-  color: #fff;
-  padding: 4px 12px;
-  font-size: 11px;
-  font-weight: 600;
-  border-radius: 5px;
-  z-index: 10;
-}
-
-.p-img {
-  width: 100%;
-  height: 200px; /* Image area fixed */
-  object-fit: contain;
-  background: #fdfdfd;
-  padding: 20px;
-  flex-shrink: 0; /* Image choti nahi hogi */
-}
-
-.content {
-  padding: 15px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; /* Baaki bacha hua space ye lega */
-  justify-content: space-between;
-}
-
-.content h3 {
-  font-size: 20px;
-  margin: 0 0 10px 0;
-  color: #222;
-  text-align: center;
-}
-
-.price-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  gap: 10px;
-}
-
-.amt {
-  font-size: 20px;
-  font-weight: 800;
-  color: #000;
-  display: flex;
-  align-items: baseline;
-}
-
-.show-bold-and-green {
-  font-size: 12px;
-  color: #28a745;
-  margin-left: 4px;
-}
-
-.show-in-small-text {
-  font-size: 13px;
-  color: #666;
-}
-
-.show-in-green {
-  color: #28a745;
-  font-weight: 600;
-}
-
-.stock-tag {
-  width: 100%;
-  font-size: 12px;
-  font-weight: 700;
-  color: #f38222;
-  text-align: center;
-  margin: 5px 0;
-}
-
-.extra-charge {
-  font-size: 10px;
-  color: #999;
-  margin-left: 5px;
-}
-
-.rent-btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #f38222;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s;
-  margin-top: auto; /* Button hamesha niche rahega */
-}
-
-.rent-btn:hover {
-  background-color: #000;
-}
-
-.view-more-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.view-more-btn {
-  padding: 12px 40px;
-  background: #000;
-  color: #fff;
-  border-radius: 30px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.view-more-btn:hover {
-  background: #f38222;
-}
-
-
-
-
-
-
-/* seconbanner.jsx ki css */
-
-
-/* Main Container jo puri image ko hold karega */
-.main-containar {
-    width: 92%;
-    height: 600px; /* Aap apne hisaab se adjust kar sakte hain */
-    background: url('../assets/images/banner2imgg.png'); /* Apni image ka path yahan dein */
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;margin-bottom: 70px;
-    padding-left: 8%; /* Content ko left side me rakhne ke liye */
-    color: #333;
+    margin-bottom: 70px;
+    padding-left: 10%; /* Professional spacing */
     overflow: hidden;
+    transition: all 0.5s ease;
 }
 
-.cnt{
-  color: orange;
-text-align: center;
-font-size: 21px;
-margin-top: -40px;
+/* Heading Highlights */
+.cnt {
+    color: #FF8C00; /* Premium Light Orange */
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.cnt2{
-  color: black;
-text-align: center;
-font-size: 17px;
-font-weight: 600;
-margin-top: 0px;
-margin-bottom: 20px;
-}
-
-.main-containar  p {
+.cnt2 {
+    color: #1a1a1a;
+    text-align: center;
     font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 40px;
-    color: #555;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 30px;
 }
 
-/* Left side wala main content box */
+/* Left Content Box */
 .main-in {
-    max-width: 450px;
+    max-width: 500px;
+    animation: fadeInLeft 1s ease-out;
 }
 
 .main-in-in h1 {
-    font-size: 45px; /* Badi heading jaisa image me tha */
-    color: #f38222;
+    font-size: 55px; /* Thoda aur bold aur bada look */
+    color: #000; /* Black for depth */
     font-weight: 900;
     margin: 0;
     line-height: 1.1;
     text-transform: capitalize;
 }
 
+/* Orange Highlight in Heading (Optional: H1 ke andar span use karo toh) */
+.main-in-in h1 span {
+    color: #FF8C00;
+}
+
 .main-in-in p {
-    font-size: 15px;
-    margin: 15px 0;
+    font-size: 18px;
+    margin: 20px 0;
     display: flex;
     align-items: center;
     font-weight: 600;
     color: #444;
+    line-height: 1.5;
 }
 
-/* Chote icons add karne ke liye (Optional) */
+/* Custom Checkmark Style */
 .main-in-in p::before {
     content: '✓';
-    margin-right: 10px;
-    color: #f38222;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background: #FF8C00;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50%;
+    margin-right: 15px;
     font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
 }
 
-/* Rent Now Button Styling */
+/* Rent Now Button - Theme Matching */
 .rentnow-btn {
-    background: #f38222;
-    color: #fff;
-    border: none;
-    padding: 15px 40px;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 50px;
+    background: #FF8C00;
+    color: #000;
+    border: 2px solid #FF8C00;
+    padding: 16px 45px;
+    font-size: 17px;
+    font-weight: 800;
+    border-radius: 8px; /* Square edges with slight round for modern look */
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 25px;
     text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(243, 130, 34, 0.2);
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
 }
 
 .rentnow-btn:hover {
     background: #000;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    color: #FF8C00;
+    border-color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
+/* --- Animations --- */
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Complete Responsive Section --- */
+
+@media (max-width: 1024px) {
+    .main-in-in h1 {
+        font-size: 45px;
+    }
     .main-containar {
         padding-left: 5%;
-        height: auto;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        background-position: right; /* Mobile me bike dikhane ke liye image shift hogi */
     }
+}
+
+@media (max-width: 768px) {
+    .main-containar {
+        width: 100%;
+        padding: 80px 20px;
+        min-height: auto;
+        background: url('../assets/images/banner2imgg.png');
+        background-position: center;
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .main-in {
+        max-width: 100%;
+    }
+
     .main-in-in h1 {
-        font-size: 40px;
+        font-size: 36px;
+    }
+
+    .main-in-in p {
+        justify-content: center;
+        font-size: 16px;
+    }
+
+    .rentnow-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .cnt, .cnt2 {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-in-in h1 {
+        font-size: 30px;
+    }
+    
+    .main-containar {
+        margin-bottom: 40px;
     }
 }
 
 
 
 
+/* card.jsx css */
 
 
-/* card.jsx ki css */
 
-
-/* --- Why ONN Section Full Styling --- */
-
+/* --- Features Section Container --- */
 .head-containair {
-    padding: 80px 5%;
+    padding: 100px 5% 60px 5%; /* Thodi spacing badhayi hai premium feel ke liye */
     background-color: #ffffff;
     text-align: center;
     overflow: hidden;
 }
 
-.why{
-  color: orange;
-text-align: center;
-font-size: 21px;
-margin-top: -70px;
+.why {
+    color: #FF8C00; /* Light Orange */
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
 }
 
-.better{
-  color: black;
-text-align: center;
-font-size: 17px;
-font-weight: 600;
-margin-top: 0px;
-margin-bottom: 20px;
+.better {
+    color: #000000;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    opacity: 0.8;
 }
 
-/* Horizontal Wrapper with Visible Scrollbar */
+/* --- Horizontal Wrapper / Grid Logic --- */
 .card-containair {
     display: flex;
-    gap: 25px;
-    padding: 20px 10px 50px 10px; /* Niche thodi jagah scrollbar ke liye */
+    gap: 30px;
+    padding: 20px 10px 60px 10px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #FF8C00 #f1f1f1;
 }
 
-/* Custom Scrollbar - Isse user ko pata chalega ki scroll ho raha hai */
+/* Custom Scrollbar for Chrome/Safari */
 .card-containair::-webkit-scrollbar {
-    height: 6px; /* Patli scrollbar */
+    height: 6px;
 }
 
 .card-containair::-webkit-scrollbar-track {
@@ -821,129 +1272,181 @@ margin-bottom: 20px;
 }
 
 .card-containair::-webkit-scrollbar-thumb {
-    background: #f38222; /* ONN Orange Scrollbar */
+    background: #FF8C00;
     border-radius: 10px;
 }
 
-/* Individual Card Styling */
+/* --- Individual Card Styling --- */
 .card-in {
-    flex: 0 0 calc(25% - 20px); 
-    min-width: 270px;
+    flex: 0 0 calc(25% - 25px); 
+    min-width: 280px;
     background: #ffffff;
-    padding: 50px 35px;
-    border-radius: 25px;
-    border: 1px solid #eee;
+    padding: 45px 30px;
+    border-radius: 20px;
+    border: 1px solid #f0f0f0;
     text-align: left;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-    position: relative; /* Animation ke liye zaroori */
-    overflow: hidden; /* Accent circle ko card ke andar rakhne ke liye */
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 450px;
+    height: auto;
+    min-height: 380px;
 }
 
-/* Top-Right Accent Animation (The "Kami" you mentioned) */
+/* Background Animated Glow */
 .card-in::before {
     content: '';
     position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 100px;
-    height: 100px;
-    background: rgba(243, 130, 34, 0.1); /* Light Orange */
+    top: -60px;
+    right: -60px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 140, 0, 0.08); /* Very light orange */
     border-radius: 50%;
-    transition: all 0.5s ease;
+    transition: all 0.6s ease;
     z-index: 0;
 }
 
-.card-in:hover::before {
-    top: -20px;
-    right: -20px;
-    width: 150px;
-    height: 150px;
-    background: rgba(243, 130, 34, 0.2);
-}
-
 .card-in:hover {
-    transform: translateY(-15px);
-    border-color: #f38222;
-    box-shadow: 0 20px 40px rgba(243, 130, 34, 0.15);
+    transform: translateY(-12px);
+    border-color: #FF8C00;
+    box-shadow: 0 20px 50px rgba(255, 140, 0, 0.12);
 }
 
-/* Icon Design */
+.card-in:hover::before {
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 140, 0, 0.15);
+}
+
+/* Icon Container Styling */
 .card-icon {
-    font-size: 25px;
-    color: #f38222;
-    background: rgba(243, 130, 34, 0.05);
-    width: 55px;
-    height: 55px;
-    padding: 20px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    z-index: 1; /* Text aur icon ko circle ke upar rakhne ke liye */
-    transition: 0.3s;
+    font-size: 24px;
+    color: #FF8C00;
+    background: #000000; /* Black background for icon is very premium */
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    z-index: 1;
+    transition: all 0.4s ease;
 }
 
 .card-in:hover .card-icon {
-    background: #f38222;
-    color: #fff;
-    transform: scale(1.1) rotate(-5deg);
+    background: #FF8C00;
+    color: #000;
+    transform: rotateY(180deg); /* Modern flip animation */
 }
 
-/* Text Content */
-.card-in h3, .card-in p {
-    position: relative;
-    z-index: 1; /* Taaki background animation ke upar dikhe */
-}
-
+/* Card Content Text */
 .card-in h3 {
     font-size: 1.4rem;
     font-weight: 800;
-    color: #222;
+    color: #000;
     margin-bottom: 15px;
+    z-index: 1;
+    position: relative;
 }
 
 .card-in p {
     font-size: 0.95rem;
-    color: #666;
-    line-height: 1.7;
+    color: #555;
+    line-height: 1.6;
     margin: 0;
+    z-index: 1;
+    position: relative;
 }
 
-/* --- Responsive Fixes --- */
-@media (max-width: 1200px) {
+/* --- Complete Responsive Design --- */
+
+/* Desktop par grid (No Scroll) */
+@media (min-width: 1025px) {
+    .card-containair {
+        overflow: hidden; /* Desktop par scroll hatayein */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
+    }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
     .card-in {
-        flex: 0 0 320px; /* Tablet/Mobile pe cards fix width ke rahenge taaki scroll ho sake */
+        flex: 0 0 300px; /* Force scroll on tablets */
     }
+    .why { font-size: 20px; }
 }
 
+/* Mobile Devices */
 @media (max-width: 768px) {
-    .cnt { font-size: 2.5rem; }
-    .card-containair { 
-        padding-left: 20px; 
+    .head-containair {
+        padding: 60px 20px;
+    }
+    
+    .why {
+        margin-top: 0; /* Mobile pe spacing fix */
+    }
+
+    .better {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .card-containair {
         gap: 20px;
+        padding-bottom: 40px;
+    }
+
+    .card-in {
+        min-width: 260px;
+        padding: 35px 25px;
+        min-height: 340px;
     }
 }
 
 
 
-/* thirdbanner.jsx ki css */
 
 
-/* Main Wrapper */
+/* thirdbanner.jsx css */
+
+
+
+
+/* --- Stats & Logos Section Main Wrapper --- */
 .main-sticker-containair {
-    padding: 0px 10%;
+    padding: 60px 10%;
     background-color: #ffffff;
     text-align: center;
-    margin-top: -40px;
+    margin-top: 0px; /* Purana negative margin hataya hai taaki layout clean rahe */
 }
 
 /* Headings: Achievements, Clients, Featured On */
 .cntt {
-     color: orange;
-text-align: center;
-font-size: 21px;
+    color: #FF8C00; /* Premium Light Orange */
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Heading ke niche ek choti line accent ke liye */
+.cntt::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 3px;
+    background: #000;
+    margin: 8px auto 0;
 }
 
 /* Row Container */
@@ -952,74 +1455,117 @@ font-size: 21px;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 50px;
+    gap: 40px;
+    margin-bottom: 60px;
 }
 
-/* Individual Achievement Box */
+/* Individual Achievement/Logo Box */
 .stc {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 150px;
-    transition: transform 0.3s ease;
+    min-width: 140px;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .stc:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    background: rgba(255, 140, 0, 0.03); /* Lightest Orange glow */
 }
 
 /* Icons Styling */
 .orange-iconn {
-    font-size: 40px;
-    color: #f38222;
+    font-size: 45px;
+    color: #000000; /* Black icons look more premium */
     margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.stc:hover .orange-iconn {
+    color: #FF8C00; /* Hover par orange hoga */
+    transform: scale(1.1);
 }
 
 .icon-desc {
-    font-size: 15px;
-    font-weight: 700;
-    color: #333;
+    font-size: 16px;
+    font-weight: 800;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    margin-top: 5px;
 }
 
 /* Client & Featured Logos Styling */
 .stc-img {
-    width: 120px; /* Logo size */
+    width: 130px; 
     height: auto;
-    opacity: 0.9;
-    transition: all 0.4s ease;
+    filter: grayscale(0%); /* Logos shuru me black & white rahenge */
+    opacity: 0.8;
+    transition: all 0.5s ease;
     cursor: pointer;
     object-fit: contain;
 }
 
-/* Hover par logos apne asli color me aayenge */
+/* Hover par logos color me aayenge aur chamkenge */
 .stc-img:hover {
-   
+    filter: grayscale(0%);
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
+/* --- Complete Responsive Design --- */
 
+@media (max-width: 1024px) {
+    .main-sticker-containair {
+        padding: 60px 5%;
+    }
+    .stc-img {
+        width: 110px;
+    }
+}
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
     .main-sticker-containair {
-        padding: 50px 5%;
+        padding: 40px 20px;
     }
     
     .sticker-cnt {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Mobile me 2 items ek line me */
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr); /* Mobile me 2 columns */
+        gap: 30px;
     }
     
+    .stc {
+        min-width: auto;
+        padding: 10px;
+    }
+
     .stc-img {
-        width: 80px;
-        margin: 0 auto;
+        width: 100px;
+        filter: grayscale(0%); /* Mobile par directly colored dikhao (better UX) */
+        opacity: 1;
     }
 
     .cntt {
-        font-size: 1.4rem;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .orange-iconn {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticker-cnt {
+        grid-template-columns: 1fr; /* Bahut chote phones par 1 column */
+        gap: 20px;
+    }
+    
+    .stc {
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 20px;
     }
 }
 
@@ -1030,74 +1576,79 @@ font-size: 21px;
 
 
 
-/* Main Container */
+/* --- FAQ Main Container --- */
 .faq-main-container {
-    padding: 80px 15%;
+    padding: 100px 15%;
     background: #ffffff;
     font-family: 'Poppins', sans-serif;
 }
 
 /* Titles and Subtitles */
-.why {
-    color: orange;
+.faq-main-container .why {
+    color: #FF8C00; /* Light Orange */
     text-align: center;
-    font-size: 21px;
-    margin-top: -70px;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
-.better {
-    color: black;
+.faq-main-container .better {
+    color: #000000;
     text-align: center;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    opacity: 0.8;
 }
 
-/* Category Sections Styling */
-.faq-section {
-    margin-bottom: 40px;
-    text-align: left;
-}
-
+/* Category Title Styling */
 .premium-cat-title {
-    font-size: 1rem;
-    color: #1e2d4d;
-    background: rgba(30, 45, 77, 0.05);
-    padding: 10px 20px;
-    border-left: 5px solid #f38222;
-    margin-bottom: 20px;
-    border-radius: 0 8px 8px 0;
+    font-size: 1.1rem;
+    color: #000;
+    background: rgba(255, 140, 0, 0.08); /* Light Orange Hint */
+    padding: 15px 25px;
+    border-left: 6px solid #FF8C00; 
+    margin-bottom: 25px;
+    border-radius: 0 12px 12px 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Premium Accordion (Details) Styling */
+/* Accordion Item Styling */
 .premium-item {
     background: #fff;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border: 1px solid #f0f0f0;
+    border-radius: 15px; /* Thoda aur rounded modern look ke liye */
+    margin-bottom: 18px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    overflow: hidden;
 }
 
 .premium-item:hover {
-    border-color: #f38222;
-    box-shadow: 0 10px 20px rgba(243, 130, 34, 0.1);
-    transform: translateX(5px);
+    border-color: #FF8C00;
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
+    transform: translateX(8px); /* Smooth nudge effect */
 }
 
 /* Summary (Question) Styling */
 summary {
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 22px 28px;
+    font-size: 17px;
     font-weight: 700;
-    color: #333;
+    color: #1a1a1a;
     cursor: pointer;
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     outline: none;
+    transition: all 0.3s ease;
 }
 
 /* Default Arrow Hatane ke liye */
@@ -1105,37 +1656,65 @@ summary::-webkit-details-marker {
     display: none;
 }
 
-/* Custom Plus/Minus Icons */
+/* --- Premium Icon Design (The Upgrade) --- */
 summary::after {
     content: '+';
-    font-size: 24px;
-    color: #f38222;
-    transition: transform 0.3s ease;
+    font-size: 20px;
+    font-weight: 300;
+    color: #FF8C00; 
+    background: #000; 
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px; 
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-details[open] summary::after {
-    content: '−'; /* Minus sign */
-    transform: rotate(180deg);
+/* Hover par Icon ka style change hoga */
+.premium-item:hover summary::after {
+    background: #FF8C00;
+    color: #000;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+}
+
+/* Open State Styling */
+details[open] .premium-item {
+    border-color: #000;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
 
 details[open] summary {
-    color: #f38222;
+    color: #FF8C00;
+}
+
+details[open] summary::after {
+    content: '−'; 
+    background: #000;
+    color: #FF8C00;
+    transform: rotate(180deg);
 }
 
 /* Answer Content Styling */
 .ans-content {
-    padding: 0 25px 25px 25px;
+    padding: 0 28px 28px 28px;
     color: #555;
-    font-size: 15px;
+    font-size: 15.5px;
     line-height: 1.8;
-    animation: fadeIn 0.4s ease;
+    border-top: 1px dashed #eee; /* Divider inside */
+    margin-top: 5px;
+    padding-top: 20px;
+    animation: slideUpFade 0.5s ease forwards;
 }
 
-/* Smooth Fade In Animation */
-@keyframes fadeIn {
+/* Smooth Slide and Fade Animation */
+@keyframes slideUpFade {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(15px);
     }
     to {
         opacity: 1;
@@ -1143,14 +1722,47 @@ details[open] summary {
     }
 }
 
-/* Responsive Design for Mobile */
+/* --- Complete Responsive Design --- */
+
+@media (max-width: 1024px) {
+    .faq-main-container {
+        padding: 80px 8%;
+    }
+}
+
 @media (max-width: 768px) {
     .faq-main-container {
-        padding: 50px 5%;
+        padding: 60px 20px;
     }
     
-    .why {
-        font-size: 2.2rem;
+    .faq-main-container .why {
+        font-size: 1.4rem;
+    }
+
+    .better {
+        font-size: 15px;
+        margin-bottom: 35px;
+    }
+
+    .premium-cat-title {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    summary {
+        font-size: 15.5px;
+        padding: 18px 20px;
+    }
+
+    summary::after {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+        border-radius: 10px;
+    }
+
+    .premium-item:hover {
+        transform: translateX(0); /* Mobile par nudge effect hata diya for better UX */
     }
 }
 
@@ -1159,9 +1771,8 @@ details[open] summary {
 
 
 
-/* review.jsx css */
 
-
+/* review.jsx  css */
 
 
 
@@ -1169,121 +1780,148 @@ details[open] summary {
 
 /* --- Review Section Main Container --- */
 .reaview-container {
-    padding: 80px 10%;
+    padding: 60px 10%;
     background-color: #ffffff;
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
 
-/* Header Styling */
+/* Header Styling - Sleek & Small */
 .reaview-container .why {
-    color: orange;
+    color: #FF8C00; /* Light Orange */
     text-align: center;
-    font-size: 21px;
-    margin-top: -90px;
+    font-size: 18px; /* Small font size */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 0; /* Margin fix */
+    margin-bottom: 5px;
 }
 
 .reaview-container .better {
-    color: black;
+    color: #000000;
     text-align: center;
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    opacity: 0.7;
 }
 
-/* --- Horizontal Scroll Logic --- */
+/* --- Horizontal Scroll Container --- */
 .review-container-in {
     display: flex;
-    gap: 25px; /* Cards ke beech ka gap */
-    overflow-x: auto; /* Horizontal scroll enable karega */
-    padding: 20px 10px 40px 10px;
-    scroll-snap-type: x mandatory; /* Smooth sliding experience */
-    scrollbar-width: thin; /* Firefox ke liye chota scrollbar */
-    scrollbar-color: #f38222 #eee;
+    gap: 20px;
+    padding: 10px 10px 40px 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox: hide scrollbar for cleaner look */
 }
 
-/* Chrome aur Safari mein scrollbar ko sundar banane ke liye */
+/* Hide scrollbar for Chrome/Safari but keep functionality */
 .review-container-in::-webkit-scrollbar {
-    height: 8px;
+    display: none;
 }
 
-.review-container-in::-webkit-scrollbar-thumb {
-    background: #f38222;
-    border-radius: 10px;
-}
-
-.review-container-in::-webkit-scrollbar-track {
-    background: #f0f0f0;
-}
-
-/* --- Review Card Styling --- */
+/* --- Sleek Review Card Styling --- */
 .review-card {
-    /* (100% / 3) se thoda kam taaki 3 cards fit ho jayein */
-    flex: 0 0 calc(33.33% - 20px); 
-    background: #fff;
-    border: 1px solid #efefef;
-    border-radius: 15px;
-    padding: 35px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    scroll-snap-align: start; /* Scroll karte hi card edge pe chipkega */
+    flex: 0 0 calc(33.33% - 15px); 
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    text-align: left; /* Left align is more readable */
+    transition: all 0.3s ease;
 }
 
 .review-card:hover {
-    transform: translateY(-10px);
-    border-color: #f38222;
+    transform: translateY(-8px);
+    border-color: #FF8C00;
+    box-shadow: 0 10px 25px rgba(255, 140, 0, 0.08);
 }
 
-/* Review Text (Paragraph) */
+/* Review Text (Paragraph) - Modern & Clean */
 .review-card p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    font-style: italic;
+    font-size: 14px; /* Smaller font */
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-weight: 400;
     position: relative;
+    flex-grow: 1; /* Aligns names at the bottom */
 }
 
-/* Quote Icon (Optional Premium Touch) */
+/* Premium Quote Accent */
 .review-card p::before {
-    content: '"';
-    font-size: 40px;
-    color: rgba(243, 130, 34, 0.2);
+    content: '“';
+    font-size: 45px;
+    color: rgba(255, 140, 0, 0.15); /* Very subtle orange */
     position: absolute;
-    top: -20px;
-    left: -10px;
+    top: -25px;
+    left: -5px;
+    font-family: serif;
 }
 
-/* Reviewer Name Styling */
+/* Reviewer Name - Bold but Small */
 .r-name {
-    font-size: 1.2rem !important;
-    color: #1e2d4d; /* Navy Blue */
-    font-weight: 700;
+    font-size: 15px !important;
+    color: #1a1a1a;
+    font-weight: 650;
     margin: 0;
     padding-top: 15px;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid #f9f9f9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* --- Responsive for Mobile (1.5 Card dikhega taaki pata chale scroll hai) --- */
+/* Add a small orange dot before name for style */
+.r-name::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #FF8C00;
+    border-radius: 50%;
+}
+
+/* --- Complete Responsive Design --- */
+
 @media (max-width: 1024px) {
     .review-card {
-        flex: 0 0 calc(50% - 20px); /* Tablet par 2 cards */
+        flex: 0 0 calc(50% - 15px);
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .reaview-container {
+        padding: 50px 20px;
+    }
+
+    .reaview-container .why {
+        font-size: 16px;
+    }
+
     .review-card {
-        flex: 0 0 85%; /* Mobile par 1 full aur thoda sa dusra card */
+        flex: 0 0 88%; /* Mobile par full card focus */
+        padding: 25px;
+    }
+
+    .review-card p {
+        font-size: 13.5px;
     }
 }
 
 
 
-/* footar.jsx ki css */
+
+
+/* footer.jsx css */
+
 
 
 
@@ -1291,89 +1929,98 @@ details[open] summary {
 
 /* --- Main Footer Container --- */
 .footar-container {
-    padding: 70px 8% 40px 8%;
-    background-image: url(../assets/images/footerbg.jfif); /* Dark background as per images */
+    padding: 80px 10% 40px 10%;
+    /* Dark overlay ke sath image background */
+    background: linear-gradient(rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.95)), 
+                url(../assets/images/footerbg.jfif);
+    background-size: cover;
+    background-position: center;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
+    border-top: 2px solid #FF8C00; /* Top border accent */
 }
 
-/* --- Top Section (4 Columns in 1 Line) --- */
+/* --- Top Section (Grid Layout) --- */
 .footer-in {
-    display: flex;
-    justify-content: space-between; /* Charon divs ke beech barabar gap */
-    align-items: flex-start;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
     padding-bottom: 50px;
-    border-bottom: 1px solid rgb(255, 132, 0);
+    border-bottom: 1px solid rgba(255, 140, 0, 0.2); /* Subtle divider */
 }
 
-/* Har ek column (div) barabar jagah lega */
+/* Column Styling */
 .container-in {
-    flex: 1; 
-    min-width: 200px; /* Taki screen choti hone pe ekdum pichak na jayein */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Headings Styling */
+/* Headings Styling - Small & Clean */
 .heading {
-    font-size: 18px;
+    font-size: 16px; /* Sleek size */
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
-    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
 }
 
 .heading::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
-    width: 35px;
-    height: 3px;
-    background-color: #f38222;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: #FF8C00;
 }
 
-/* Links (UL/LI) Styling */
+/* Links Styling */
 .container-in ul {
     list-style: none;
     padding: 0;
 }
 
 .container-in ul li {
-    color: #bbb;
-    font-size: 14px;
-    margin-bottom: 10px;
+    color: #aaa; /* Soft white/grey */
+    font-size: 13.5px; /* Clean small size */
+    margin-bottom: 12px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    font-weight: 400;
 }
 
 .container-in ul li:hover {
-    color: #f38222;
-    padding-left: 5px;
+    color: #FF8C00;
+    transform: translateX(5px);
 }
 
 /* Sub-headings and Text */
 .sub-heading {
     display: block;
-    color: #f38222;
-    font-size: 12px;
-    font-weight: 800;
+    color: #FF8C00;
+    font-size: 11px;
+    font-weight: 700;
     margin-top: 15px;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .time, .container-in p {
-    color: #aaa;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-top: 5px;
+    color: #999;
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-top: 6px;
+    font-weight: 400;
 }
 
-/* Logo Image */
+/* Logo Image Styling */
 .container-in img[alt="logoimge"] {
-    max-width: 130px;
-    margin-bottom: 15px;
-    border-radius: 20px;
+    max-width: 120px;
+    margin-bottom: 20px;
+    filter: brightness(1.1);
+    transition: 0.3s;
 }
 
 /* --- Bottom Section (Follow Us & Apps) --- */
@@ -1384,58 +2031,91 @@ details[open] summary {
     padding-top: 40px;
 }
 
+/* Social Media Icons - Modern Style */
 .social-media-icon {
     display: flex;
-    gap: 12px;
+    gap: 15px;
 }
 
 .social-media-icon img {
-    width: 38px;
-    height: 38px;
-    border: 1px solid #fff;
-    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.05); /* Glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px; /* Squircle style */
     padding: 8px;
-    transition: 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
 }
 
 .social-media-icon img:hover {
-    background: #f38222;
-    border-color: #f38222;
+    background: #FF8C00;
+    border-color: #FF8C00;
+    transform: translateY(-5px) rotate(8deg);
+    filter: brightness(0); /* Icon black ho jayega hover par */
 }
 
+/* App Store Icons */
 .play-app {
     display: flex;
     gap: 15px;
 }
 
 .play-app img {
-    height: 40px;
-    cursor: pointer;
+    height: 35px;
+    transition: 0.3s;
+    filter: grayscale(1); /* Premium minimal look */
+    opacity: 0.7;
 }
 
-/* --- Responsive for Mobile --- */
+.play-app img:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* --- Complete Responsive Design --- */
+
 @media (max-width: 1024px) {
-    .footer-in {
-        flex-wrap: wrap; /* Tablet par 2-2 karke dikhenge */
-    }
-    .container-in {
-        flex: 0 0 45%;
+    .footar-container {
+        padding: 60px 5% 30px 5%;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .footer-in {
-        flex-direction: column; /* Mobile par ek ke niche ek */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        gap: 30px;
     }
-    .container-in {
-        flex: 1;
-        width: 100%;
-    }
+
     .footer-in2 {
         flex-direction: column;
-        gap: 20px;
+        gap: 25px;
         text-align: center;
+    }
+    
+    .social-media-icon, .play-app {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-in {
+        grid-template-columns: 1fr; /* Single column for small phones */
+    }
+    
+    .heading {
+        font-size: 15px;
+    }
+
+    .container-in {
+        align-items: center;
+        text-align: center;
+    }
+
+    .heading::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
@@ -1443,307 +2123,176 @@ details[open] summary {
 
 
 
-/* productdetail.jsx ki css  */
+
+/* orderform.jsx css */
 
 
 
 
-
-/* --- Premium Product Detail Page --- */
-.product-detail-page {
-  padding: 40px 10%;
-  background: linear-gradient(135deg, #ffffff 0%, #f4f4f4 100%);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.detail-wrapper {
-  display: flex;
-  gap: 40px;
-  max-width: 1100px;
-  width: 100%;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 30px;
-  align-items: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); /* Premium Soft Shadow */
-}
-
-/* --- Image Section (Left) --- */
-.image-section {
-  flex: 1;
-  background: #fdfdfd;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  height: 350px;
-  border: 1px solid #f0f0f0;
-  position: relative;
-  overflow: hidden;
-}
-
-.image-section::before {
-  content: 'DRIVE';
-  position: absolute;
-  font-size: 100px;
-  font-weight: 900;
-  color: #f38222;
-  opacity: 0.05;
-  top: 10%;
-  left: -5%;
-  letter-spacing: 10px;
-}
-
-.detail-img {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  object-fit: contain;
-  z-index: 1;
-  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
-  transition: transform 0.5s ease;
-}
-
-.detail-img:hover {
-  transform: scale(1.08) rotate(-2deg);
-}
-
-/* --- Info Section (Right) --- */
-.info-section {
-  flex: 1;
-     
-}
-
-.brand-name-detail {
-  font-size: 12px;
-  font-weight: 700;
-  color: #f38222;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
-}
-
-.info-section h1 {
-  font-size: 32px;
-  font-weight: 900;
-  color: #000;
-  margin: 0 0 15px 0;
-  line-height: 1.1;
-}
-
-.price-box {
-  background: #000; /* Dark Premium Theme */
-  padding: 7px 15px;
-  border-radius: 12px;
-  color: #fff;
-  margin-bottom: 20px;
-  display: inline-block;
- 
-}
-
-.price-amt {
-  font-size: 26px;
-  font-weight: 800;
-  color: #f38222;
-}
-
-.price-box small {
-  font-size: 14px;
-  font-weight: 400;
-  opacity: 0.8;
-  margin-left: 5px;
-}
-
-.extra-info {
-  margin-bottom: 35px;
-}
-
-.extra-info p {
-  font-size: 14px;
-  color: #555;
-  margin: 12px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.extra-info b {
-  color: #000;
-  font-weight: 700;
-  width: 140px;
-}
-
-/* --- Booking Button (The Main CTA) --- */
-.detail-book-btn {
-  padding: 14px 35px;
-  background: #f38222;
-  color: #fff;
-  border: none;
-  width: 100%;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 15px 30px rgba(243, 130, 34, 0.3);
-}
-
-.detail-book-btn:hover {
-  background: #000;
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-}
-
-/* Loader Styling */
-.loader {
-  text-align: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: #f38222;
-  margin-top: 100px;
-}
-
-/* --- Responsive for Smaller Screens --- */
-@media (max-width: 1024px) {
-  .detail-wrapper {
-    flex-direction: column;
-    padding: 30px;
-    gap: 40px;
-  }
-  .info-section h1 {
-    font-size: 36px;
-  }
-  .product-detail-page {
-    padding: 40px 5%;
-  }
-}
-
-
-
-
-
-/* orderform.jsx ki css  */
-
-
-
-/* Container Box */
+/* --- Order/Booking Container Box --- */
 .order-box {
-    max-width: 450px;
-    margin: 50px auto;
+    max-width: 420px; /* Thoda chota aur sleek */
+    margin: 40px auto;
     background: #ffffff;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
     font-family: 'Poppins', sans-serif;
     border: 1px solid #f0f0f0;
 }
 
 .order-box h3 {
     text-align: center;
-    color: #1a1a1a;
-    font-size: 24px;
-    margin-bottom: 25px;
+    color: #000;
+    font-size: 20px; /* Clean smaller size */
+    margin-bottom: 30px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* User & Bike Info Section */
+/* User & Bike Info Section - Modern Sleek Look */
 .user-static-info {
-    background: #fdf7f2; /* Light Orange Tint */
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 25px;
+    background: #fafafa; /* Very light grey */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px dashed #f38222;
+    border: 1px solid #f0f0f0;
+    position: relative;
+}
+
+/* Orange Accent Line */
+.user-static-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: #FF8C00;
+    border-radius: 0 0 10px 10px;
 }
 
 .user-static-info img {
-    width: 150px !important;
+    width: 130px !important; /* Slightly smaller for elegance */
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+
+.user-static-info:hover img {
+    transform: scale(1.05);
 }
 
 .user-static-info p {
-    margin: 5px 0;
-    font-size: 15px;
-    color: #444;
+    margin: 4px 0;
+    font-size: 14px; /* Subtle size */
+    color: #666;
+    font-weight: 400;
 }
 
 .user-static-info strong {
-    color: #f38222;
+    color: #000; /* Professional Black */
+    font-weight: 600;
 }
 
-/* Date Inputs */
+/* Date Inputs - Refined Styling */
 .date-inputs {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .date-inputs label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #555;
-    margin-bottom: -10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: -15px;
+    padding-left: 2px;
 }
 
 .date-inputs input {
     width: 100%;
     padding: 12px 15px;
-    border: 2px solid #eee;
-    border-radius: 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
     font-size: 14px;
     color: #333;
+    background: #fdfdfd;
     transition: all 0.3s ease;
     outline: none;
 }
 
 .date-inputs input:focus {
-    border-color: #f38222;
+    border-color: #000; /* Black focus border */
     background-color: #fff;
-    box-shadow: 0 0 8px rgba(243, 130, 34, 0.2);
+    box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.1); /* Subtle Orange Glow */
 }
 
-/* Confirm Button */
+/* Confirm Button - High End CTA */
 .book-now-btn {
     width: 100%;
-    margin-top: 30px;
-    padding: 15px;
-    background: #f38222; /* Primary Orange */
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
+    margin-top: 35px;
+    padding: 16px;
+    background: #000; /* Black background for premium feel */
+    color: #FF8C00; /* Orange text */
+    border: 1px solid #000;
+    border-radius: 8px;
+    font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     cursor: pointer;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 20px rgba(243, 130, 34, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .book-now-btn:hover {
-    background: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: #FF8C00;
+    color: #000;
+    border-color: #FF8C00;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
 }
 
 .book-now-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.96);
 }
 
-/* Toast Customization */
+/* Toast Customization - Sleek Dark Theme */
 .Toastify__toast--success {
-    background: #000 !important;
-    color: #fff !important;
+    background: #1a1a1a !important;
+    color: #FF8C00 !important;
+    border-radius: 8px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
 }
 
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+    .order-box {
+        max-width: 90%;
+        padding: 25px 20px;
+        margin: 30px auto;
+    }
+
+    .order-box h3 {
+        font-size: 18px;
+    }
+
+    .user-static-info img {
+        width: 110px !important;
+    }
+
+    .book-now-btn {
+        padding: 14px;
+        font-size: 14px;
+    }
+}
