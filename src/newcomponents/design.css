@@ -8,7 +8,10 @@ html {
 
  /* header.jsx css */
 
-
+*{
+    padding: 0px;
+    margin: 0px;
+}
 
 
 
@@ -235,12 +238,14 @@ html {
 
     /* Search & Profile Section (Logo ke niche) */
     .navbar-in3 {
-        width: 100%;
+        width: 93%;
+        margin-top: -10px;
         display: flex;
+        border-top: 1px solid rgba(255, 255, 255, 0.313);
         justify-content: space-between;
         align-items: center;
         padding: 10px 15px;
-        background: #1a2a4d; /* Dark Blue/Navy Blue background jaisa image me hai */
+        background: #000000; /* Dark Blue/Navy Blue background jaisa image me hai */
         gap: 10px;
     }
 
@@ -580,8 +585,8 @@ html {
      text-align: center;
      padding: 40px 20px;
      background: #1A1A1A;
-     color: white;
-     margin: 0;
+     color: rgb(11, 0, 0);
+     margin: 80px;
      font-size: 1.5rem;
      border-bottom: 4px solid #FFA500;
  }
@@ -614,6 +619,10 @@ html {
  /* --- Responsive Design (Mobile & Tablet) --- */
 
  @media (max-width: 768px) {
+    .box{
+        width: 90%;
+    }
+  
      .box-in1 h1 {
          font-size: 2rem;
      }
@@ -621,7 +630,7 @@ html {
      .box-in2 {
          padding: 20px;
          width: 95%;
-     }
+margin-left: -10px;     }
 
      .booking-inps {
          grid-template-columns: 1fr;
@@ -1246,6 +1255,7 @@ html {
     
     .main-containar {
         margin-bottom: 40px;
+        width: 90%;
     }
 }
 

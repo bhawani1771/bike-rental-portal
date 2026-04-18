@@ -104,7 +104,7 @@ function Auth() {
                 </button>
 
                 <p className="toggle-text">
-                    {isLogin ? "Naya account banana hai? " : "Pehle se account hai? "}
+                    {isLogin ? "Create Account ? " : "Already as a user ? "}
                     <span onClick={() => setIsLogin(!isLogin)}>
                         {isLogin ? "Register" : "Login"}
                     </span>
