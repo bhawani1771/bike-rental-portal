@@ -1,0 +1,190 @@
+/* about ki css  */
+
+
+/* Layout Styling */
+.about-page { 
+  line-height: 1.6; 
+  font-family: 'Poppins', sans-serif; 
+  color: #444; 
+  width: 100%; 
+  overflow-x: hidden; /* Scroll issue rokne ke liye */
+}
+
+/* Hero Section - Fixed Width & Background */
+.hero-section {
+  height: 75vh;
+  width: 100%; /* Pura width lene ke liye */
+  background-image: url('../assets/images/bannerimg.jpg');
+  background-position: center;
+  background-size: cover; /* Ye image ko div mein perfect fit karega */
+  background-repeat: no-repeat;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  color: white;
+  position: relative;
+}
+
+.hero-overlay { 
+  background: rgba(0,0,0,0.5); 
+  padding: 40px; 
+  border-radius: 15px; 
+  width: 80%; /* Overlay ko neat rakhne ke liye */
+  max-width: 800px;
+}
+
+/* Intro Section */
+.intro-section { padding: 60px 10%; text-align: center; }
+
+/* Values Grid */
+.values-section { padding: 50px 10%; background: #fffaf0; }
+.values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 30px; }
+.value-item { 
+  padding: 30px; 
+  background: white; 
+  border-radius: 15px; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+  border-bottom: 4px solid #ff8c00; 
+  transition: transform 0.3s ease;
+}
+.value-item:hover { transform: translateY(-10px); }
+
+/* Journey & CTA */
+.journey-section { padding: 60px 10%; background: #f9f9f9; text-align: center; }
+.cta-section { padding: 80px 10%; text-align: center; background: #ff8c00; color: white; }
+.cta-section button { 
+  padding: 15px 40px; 
+  background: white; 
+  color: #ff8c00; 
+  border: none; 
+  font-size: 1.2rem; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  font-weight: bold; 
+  transition: 0.3s;
+}
+.cta-section button:hover { background: #333; color: white; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .values-grid { grid-template-columns: 1fr; }
+  .hero-section { height: 50vh; }
+  .hero-overlay h1 { font-size: 1.8rem; }
+}
+
+
+
+
+/* blog.js ki css  */
+
+
+
+
+
+/* --- Global Blog Styles --- */
+.blog-page { 
+  font-family: 'Poppins', sans-serif; 
+  background-color: #f8f9fa; 
+  color: #333; 
+  padding-bottom: 80px; 
+}
+
+/* --- Hero Section --- */
+.blog-hero { 
+  background: linear-gradient(135deg, #2d3436 0%, #000000 100%); 
+  color: white; 
+  padding: 120px 20px; 
+  text-align: center;
+  border-bottom: 5px solid #ff8c00;
+}
+.blog-hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
+
+/* --- Grid Container --- */
+.blog-container { 
+  display: grid; 
+  grid-template-columns: 2.5fr 1fr; 
+  gap: 50px; 
+  padding: 60px 10%; 
+  max-width: 1400px; 
+  margin: auto; 
+}
+
+/* --- Blog Cards --- */
+.blog-card { 
+  background: white; 
+  padding: 40px; 
+  border-radius: 20px; 
+  margin-bottom: 40px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  border: 1px solid #eee;
+}
+.blog-card:hover { 
+  transform: translateY(-10px); 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+}
+.category-tag { 
+  background: #fff3e0; 
+  color: #ff8c00; 
+  padding: 6px 18px; 
+  border-radius: 50px; 
+  font-size: 0.85rem; 
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* --- Sidebar Styling --- */
+.sidebar-box { 
+  background: white; 
+  padding: 30px; 
+  border-radius: 15px; 
+  margin-bottom: 40px; 
+  border: 1px solid #eee;
+}
+.sidebar-box h3 { 
+  font-size: 1.4rem; 
+  margin-bottom: 20px; 
+  padding-bottom: 10px; 
+  border-bottom: 2px solid #ff8c00; 
+}
+.sidebar-box ul { list-style: none; padding: 0; }
+.sidebar-box ul li { 
+  padding: 12px 0; 
+  border-bottom: 1px solid #f0f0f0; 
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sidebar-box ul li:hover { color: #ff8c00; padding-left: 10px; }
+
+/* --- Newsletter & Buttons --- */
+.newsletter input { 
+  width: 100%; padding: 12px; margin: 15px 0; 
+  border: 2px solid #eee; border-radius: 8px; outline: none;
+}
+.newsletter button { 
+  width: 100%; padding: 12px; background: #ff8c00; 
+  color: white; border: none; border-radius: 8px; 
+  font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.read-more { 
+  background: transparent; border: 2px solid #ff8c00; 
+  color: #ff8c00; padding: 12px 25px; 
+  border-radius: 8px; cursor: pointer; font-weight: 600;
+  transition: all 0.3s;
+}
+.read-more:hover { background: #ff8c00; color: white; }
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .blog-container { grid-template-columns: 1fr; }
+  .blog-hero h1 { font-size: 2.5rem; }
+}
+@media (max-width: 480px) {
+  .blog-hero { padding: 60px 20px; }
+  .blog-card { padding: 20px; }
+}
+
+/* --- Typography Polish --- */
+.blog-main h2 { color: #1a1a1a; font-size: 2rem; margin: 15px 0; }
+.date { color: #999; font-size: 0.95rem; font-weight: 500; margin-bottom: 15px; }
