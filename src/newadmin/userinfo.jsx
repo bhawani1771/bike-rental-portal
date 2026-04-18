@@ -5,7 +5,7 @@ import "./adminpanel.css";
 function Usrinfo() {
     const [allUser, setAllUser] = useState([]);
 
-    const apiurl = "http://localhost:4000/api/bikeusers";
+    const apiurl = "https://onn-bike-rental-backend.onrender.com/api/bikeusers";
 
     async function fetchUser() {
 

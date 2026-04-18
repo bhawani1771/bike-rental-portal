@@ -6,7 +6,7 @@ function Review() {
     const [items, setItems] = useState([]);
 
 
-    const apiurl = "http://localhost:4000/api/review";
+    const apiurl = "https://onn-bike-rental-backend.onrender.com/api/review";
 
     const getreview = async () => {
         try {

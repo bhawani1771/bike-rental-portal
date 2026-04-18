@@ -18,7 +18,7 @@ function Listings() {
     const [metadescription, setMetaDescription] = useState("");
     const [metakeyword, setMetaKeywords] = useState("");
 
-    const apiurl = "http://localhost:4000/api/listing";
+    const apiurl = "https://onn-bike-rental-backend.onrender.com/api/listing";
 
     async function fetchListing() {
         const response = await fetch(apiurl);

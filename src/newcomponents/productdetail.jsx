@@ -17,7 +17,7 @@ const goTobooking = () =>{
 
   const getSingleProduct = async () => {
     try {
-      const res = await fetch(`http://localhost:4000/api/listing/${id}`);
+      const res = await fetch(`https://onn-bike-rental-backend.onrender.com/api/listing/${id}`);
       const data = await res.json();
       setBike(data);
     } catch (error) {

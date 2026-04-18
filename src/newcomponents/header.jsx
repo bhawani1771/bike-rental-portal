@@ -18,7 +18,7 @@ function Header() {
 
   async function loadproducts() {
     try {
-      const res = await fetch("http://localhost:4000/api/listing");
+      const res = await fetch("https://onn-bike-rental-backend.onrender.com/api/listing");
       const dataaa = await res.json();
       setAllBikes(dataaa);
     } catch (err) {

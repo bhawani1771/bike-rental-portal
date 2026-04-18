@@ -6,7 +6,7 @@ function Products() {
   const [items, setItems] = useState([]);
   const [visible, setVisible] = useState(3);
 
-  const API_URL = "http://localhost:4000/api/listing";
+  const API_URL = "https://onn-bike-rental-backend.onrender.com/api/listing";
 
   const getProducts = async () => {
     try {

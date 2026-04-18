@@ -14,7 +14,7 @@ function Review() {
 
 
 
-    const apiurl = "http://localhost:4000/api/review";
+    const apiurl = "https://onn-bike-rental-backend.onrender.com/api/review";
 
     async function fetchreview() {
         const response = await fetch(apiurl);

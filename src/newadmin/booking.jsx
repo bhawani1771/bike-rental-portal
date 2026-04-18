@@ -7,7 +7,7 @@ function Booking() {
 
     const fetchOrder = async () => {
 
-        const apiurl = await fetch("http://localhost:4000/api/orders");
+        const apiurl = await fetch("https://onn-bike-rental-backend.onrender.com/api/orders");
         const data = await apiurl.json();
         setOrder(data);
     }

@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')).render(
     <HelmetProvider>
       <CartProvider>
         {/* <App /> */}
-     <Newapp   />
+     <Newapp />
       </CartProvider>
     </HelmetProvider>
   </StrictMode>,
