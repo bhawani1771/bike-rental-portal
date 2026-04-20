@@ -22,14 +22,13 @@ function Banner() {
             <div className="box">
                 <div className="box-in1">
                     <h1>Rent A Bike & Explore The City</h1>
-           <p>Affordable, Quick and Hassle-free Bike Rentals</p>
-                </div>
+                    </div>
 
                 <div className="box-in2">
                     <div className="booking-inps">
                         <div className="location-contionair">
                             <label>Select Location & Branch</label>
-                            <select className="info-input">
+                            <select className="info-input" style={{height:"38px" , borderRadius:"7px" ,padding4:"4px 2px"}}>
                                     <option value="">Select City</option>
                                   {city.map((item , index)=>(
                                   <option key={index} value={item.valueee}>ONN bikes , {item.branch}</option>

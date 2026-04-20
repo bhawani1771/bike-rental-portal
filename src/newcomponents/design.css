@@ -318,12 +318,9 @@ body {
 
 
 
-/* Color Palette:
-   Orange: #FF8C00 (Darker Orange for text/icons)
-   Light Orange: #FFA500 (Main Theme Orange)
-   Black: #1A1A1A
-   White: #FFFFFF
-*/
+
+
+
 
 .box {
     width: 100%;
@@ -357,15 +354,7 @@ body {
     letter-spacing: 2px;
 }
 
-.box-in1 p {
-    font-size: 1.2rem;
-    color: #ffa704;
-    position: relative;
-    left: -240px;
-    top: -10px;
-    /* Light Orange */
-    font-weight: 500;
-}
+
 
 /* Booking Card Container */
 .box-in2 {
@@ -488,6 +477,8 @@ label {
     .box-in1 h1 {
         font-size: 2rem;
     }
+
+
 
     .box-in2 {
         padding: 20px;
@@ -953,6 +944,60 @@ label {
         max-width: 240px;
     }
 }
+
+
+
+.product-detail-page {
+  display: flex;
+  flex-direction: column;   
+}
+
+.more-bikes-section {
+  width: 100%;
+  margin-top: 40px;         
+}
+
+
+
+.more-bikes-section { margin-top: 70px; padding: 20px 0; border-top: 2px solid #f2f2f2; }
+
+.more-bikes-section h2 { text-align: center; font-size: 2rem; color: #000; font-weight: 800; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* same grid but slightly tighter for this section */
+.more-bikes-section .product-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
+
+/* small card variation */
+.more-bikes-section .card-box { border: 1px solid #eee; transition: 0.3s; }
+
+.more-bikes-section .card-box:hover { border-color: #ffa500; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transform: translateY(-5px); }
+
+/* image adjust */
+.more-bikes-section .p-img { height: 170px; padding: 15px; }
+
+/* model text */
+.more-bikes-section h4 { font-size: 1.1rem; color: #000; font-weight: 700; margin: 10px 0; text-align: center; }
+
+/* price */
+.more-bikes-section p { text-align: center; font-weight: 700; color: #c56709; margin-bottom: 10px; }
+
+/* button */
+.more-bikes-section .rent-btn { width: 80%; margin: 0 auto 15px auto; display: block; background: #000; color: #fff; border-radius: 6px; }
+
+.more-bikes-section .rent-btn:hover { background: #ffa500; color: #000; }
+
+/* responsive */
+@media (max-width: 768px) {
+  .more-bikes-section h2 { font-size: 1.5rem; }
+  .more-bikes-section .product-grid { grid-template-columns: 1fr; }
+  .more-bikes-section .p-img { height: 150px; }
+}
+
+@media (max-width: 480px) {
+  .more-bikes-section { padding: 10px 0; }
+  .more-bikes-section h2 { font-size: 1.3rem; }
+}
+
+
 
 
 

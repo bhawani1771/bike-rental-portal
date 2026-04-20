@@ -16,7 +16,8 @@ import {Contactus} from "./newpages/contactus.jsx";
 import { Products } from "./newcomponents/productcard.jsx";
 import { Auth } from "./newcomponents/userlogin.jsx";
 import { Productdetail } from "./newcomponents/productdetail";
-import {OrderForm} from "./newcomponents/orderform"
+import {OrderForm} from "./newcomponents/orderform";
+import {ScrollToTop } from "./newcomponents/ScrollToTop.jsx"
 
 
 
@@ -28,6 +29,8 @@ function Newapp() {
   return (
 
     <Router>
+
+       <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={

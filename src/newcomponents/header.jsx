@@ -16,7 +16,10 @@ function Header() {
 
   const [mode, setMode] = useState("view");
 
-  // ✅ USER STATE (IMPORTANT FIX)
+ 
+
+
+  
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("loggedInUser"))
   );
@@ -36,7 +39,10 @@ function Header() {
       setUsername(user.username);
       setEmail(user.email);
     }
-  }, [user]); // ✅ dependency add
+  }, [user]); 
+
+
+
 
   async function loadproducts() {
     try {
@@ -62,27 +68,35 @@ function Header() {
     }
   }
 
-  // ✅ LOGOUT FIX
+
+
+
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
-    setUser(null); // ✅ important
+    setUser(null);     
     setShowProfile(false);
     navigate("/user-management");
   };
 
-  // ✅ PROFILE UPDATE FIX
+
+
+
+
   const handleUpdateProfile = () => {
     const updatedUser = { ...user, username, email };
 
     localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
 
-    setUser(updatedUser); // ✅ UI instantly update
-
+    setUser(updatedUser);
     toast.success("Profile Updated Successfully");
     setMode("view");
   };
 
-  // ✅ PASSWORD CHANGE
+
+
+
+
+
   const handleChangePassword = () => {
     if (!oldPassword || !newPassword) {
       toast.warn("Please fill all fields");
@@ -97,17 +111,24 @@ function Header() {
     <>
       <div className="navbar">
 
-        {/* Logo */}
+
+
+
+
         <div className="navbar-in1">
           <img src={logo} alt="logo" className="logo-img" />
         </div>
 
-        {/* Home */}
+
+
         <NavLink to="/" className="nav-link home-link">
           Home
         </NavLink>
 
-        {/* Menu */}
+
+
+
+
         <div className={`navbar-in2 ${showMenu ? "show" : ""}`}>
           <div className="navbar-inner2">
             <ul className="dropdown-menu">
@@ -119,10 +140,14 @@ function Header() {
           </div>
         </div>
 
-        {/* Right Section */}
+
+
         <div className="navbar-in3">
 
-          {/* Search */}
+
+
+
+
           <input
             type="text"
             placeholder="Search Bike..."
@@ -131,7 +156,9 @@ function Header() {
             onChange={handleSearch}
           />
 
-          {/* Suggestions */}
+
+
+
           {suggestions.length > 0 && (
             <div className="search-list">
               {suggestions.map((bike) => (
@@ -150,7 +177,13 @@ function Header() {
             </div>
           )}
 
-          {/* PROFILE */}
+
+
+
+
+
+
+
           <div className="profile-wrapper">
 
             <button
@@ -221,7 +254,6 @@ function Header() {
             )}
           </div>
 
-          {/* Menu button */}
           <button className="menu-btn" onClick={() => setShowMenu(!showMenu)}>
             ⋮
           </button>
