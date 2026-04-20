@@ -49,6 +49,8 @@ function Banner() {
                          <button className="find-btn">Find Bike</button>
                     </div>
                 </div>
+                              <a href="tel:9876543211" className="phone-icon">📞</a>
+
             </div>
 
             <h3 className="content">ONN Bikes - India’s Best Bike & Scooty Rental Service</h3>

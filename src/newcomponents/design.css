@@ -1,664 +1,527 @@
 html {
-     scroll-behavior: smooth;
- }
-
- body {
-     background-color: white;
- }
-
- /* header.jsx css */
-
-*{
-    padding: 0px;
-    margin: 0px;
+    scroll-behavior: smooth;
 }
 
 
 
- .navbar {
-     height: 70px;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 10px  5%;
-     background-color: #000000;
-     color: #ffffff;
-     position: sticky;
-     top: 0;
-     z-index: 1000;
-     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
- }
-
- .navbar-in1 .logo-img {
-     width: 120px;
-     height: auto;
-     cursor: pointer;
-     transition: transform 0.3s ease;
- }
-
- .navbar-in1 .logo-img:hover {
-     transform: scale(1.05);
- }
-
- .navbar-in2 ul {
-     display: flex;
-     list-style: none;
-     gap: 30px;
-     align-items: center;
-     margin: 0;
-     padding: 0;
- }
-
- .nav-link {
-     text-decoration: none;
-     font-size: 15px;
-     font-weight: 600;
-     color: #ffffff !important;
-     display: inline-block;
-     padding: 5px 0 !important;
-     margin: 0 !important;
-     border: none !important;
-     background: transparent !important;
-     outline: none !important;
-     position: relative;
-     transition: color 0.3s ease;
-     box-sizing: border-box;
- }
-
- .nav-link:hover,
- .nav-link.active {
-     color: #f38222 !important;
-     border: none !important;
- }
-
- .nav-link::after {
-     content: '';
-     position: absolute;
-     bottom: -2px;
-     left: 0;
-     width: 0;
-     height: 2px;
-     background-color: #f38222;
-     transition: width 0.3s ease;
-     pointer-events: none;
- }
-
- .nav-link:hover::after,
- .nav-link.active::after {
-     width: 100%;
- }
-
- #faq-section {
-     scroll-margin-top: 100px;
-     /* Isse Header FAQ ke title ko chupayega nahi */
- }
-
- .navbar-in3 {
-     display: flex;
-     align-items: center;
-     gap: 20px;
-     position: relative;
- }
-
- .src-inp {
-     padding: 8px 15px;
-     border-radius: 20px;
-     border: 1px solid #333;
-     background: #1a1a1a;
-     color: white;
-     font-size: 14px;
-     outline: none;
-     width: 180px;
-     transition: 0.3s;
- }
-
- .src-inp:focus {
-     border-color: #f38222;
-     width: 220px;
- }
-
- .navbar-in3 a {
-     text-decoration: none;
-     font-size: 18px;
-     transition: transform 0.3s;
- }
-
- .navbar-in3 a:hover {
-     transform: scale(1.2);
- }
-
- .login-btn {
-     background-color: #f38222;
-     color: #ffffff;
-     border: none;
-     padding: 8px 25px;
-     border-radius: 6px;
-     font-weight: 700;
-     cursor: pointer;
-     transition: all 0.3s ease;
-     text-transform: uppercase;
-     font-size: 13px;
- }
-
- .login-btn:hover {
-     background-color: #e67616;
-     box-shadow: 0 0 15px rgba(243, 130, 34, 0.4);
-     transform: translateY(-2px);
- }
-
- .search-list {
-     position: absolute;
-     top: 50px;
-     left: 0;
-     width: 220px;
-     background-color: #1a1a1a;
-     border: 1px solid #333;
-     border-radius: 8px;
-     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-     z-index: 2000;
-     max-height: 250px;
-     overflow-y: auto;
-     padding: 5px 0;
- }
-
- .search-item {
-     display: block;
-     padding: 10px 15px;
-     color: #ffffff;
-     text-decoration: none;
-     font-size: 14px;
-     font-weight: 500;
-     transition: all 0.2s ease;
-     border-bottom: 1px solid #2a2a2a;
- }
-
- .search-item:last-child {
-     border-bottom: none;
- }
-
- .search-item:hover {
-     background-color: #f38222;
-     color: #ffffff;
-     padding-left: 20px;
- }
-
- .search-list::-webkit-scrollbar {
-     width: 5px;
- }
-
- .search-list::-webkit-scrollbar-thumb {
-     background: #333;
-     border-radius: 10px;
- }
-
-
-
- /* responsive */
+/* header.jsx css */
 
 
 
 
- /* --- Desktop Styles (Hamesha Top par) --- */
-@media (min-width: 1025px) {
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 5%;
-        background: #000000;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
+
+/* --- Global Reset --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
 }
 
-/* --- Mobile Responsive (Image Jaisa look) --- */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* NAVBAR BASE */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: #000;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #222;
+}
+
+.logo-img {
+    height: 40px;
+    cursor: pointer;
+}
+
+/* --- NAVIGATION LINKS (Flex setup) --- */
+.navbar-in2 {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-left: -65px;
+}
+
+
+
+
+.navbar-inner2 ul {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    color: #ccc;
+    font-size: 15px;
+    padding: 2px 0;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+
+.nav-link.home-link{
+    margin-right: -70px;
+}
+
+
+/* HOVER: No Jump, No Background */
+.nav-link:hover,
+.nav-link.active {
+    color: #ff9d00 !important;
+    background: none !important;
+    padding: 2px 0px;
+}
+
+/* 🔥 COLOR-FUL GRADIENT UNDERLINE */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, orange, #ff7300);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* --- SEARCH & ACTIONS --- */
+.navbar-in3 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.src-inp {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    background: #111;
+    color: #fff;
+    width: 200px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.src-inp:focus {
+    border-color: #ff9d00;
+}
+
+.phone-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    text-decoration: none;
+    width: 45px;
+    padding: 10px 11px;
+    border-radius: 50%;
+    background-color: #222;
+}
+
+.profile-icon-btn {
+    background: #ff9d00;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+/* --- SEARCH SUGGESTIONS --- */
+.search-list {
+    position: absolute;
+    top: 65px;
+    right: 200px;
+    width: 240px;
+    background: #111;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 999;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.search-item {
+    display: block;
+    padding: 10px;
+    color: #ccc;
+    text-decoration: none;
+    border-bottom: 1px solid #222;
+}
+
+.search-item:hover {
+    color: #ff9d00;
+    background: #1a1a1a;
+}
+
+
+
+
+/* --- RESPONSIVE LAYERS --- */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #ff9d00;
+    cursor: pointer;
+}
+
+/* 1. TABLET VIEW (1024px) */
 @media (max-width: 1024px) {
-    /* Main Navbar (Sirf Logo aur Search ke liye) */
-    .navbar {
-        display: flex;
-        flex-direction: column;
-        padding: 10px 0;
-        background: #000000;
-    }
-
-    /* Logo Section - Full Width */
-    .navbar-in1 {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        border-bottom: 1px solid #f0f0f0;
-    }
-
-    .logo-img {
-        width: 180px; /* Full width jaisa feel dene ke liye */
-        height: auto;
-    }
-
-    /* Search & Profile Section (Logo ke niche) */
-    .navbar-in3 {
-        width: 93%;
-        margin-top: -10px;
-        display: flex;
-        border-top: 1px solid rgba(255, 255, 255, 0.313);
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 15px;
-        background: #000000; /* Dark Blue/Navy Blue background jaisa image me hai */
-        gap: 10px;
+    .navbar-inner2 ul {
+        gap: 15px;
     }
 
     .src-inp {
-        flex: 1;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #fff;
-        border-radius: 5px;
-        padding: 8px 12px;
+        width: 150px;
+    }
+}
+
+/* 2. MOBILE VIEW (768px) */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block !important;
     }
 
-    .src-inp::placeholder { color: #ccc; }
-
-    .profile-icon-btn {
-        background: #4e6bff; /* Image jaisa blue button */
-        color: #fff;
-        border-radius: 20px;
-        padding: 5px 15px;
-        font-size: 14px;
-        width: auto;
-        height: auto;
-    }
-
-    /* --- Bottom Navigation Bar (Fixed at bottom) --- */
     .navbar-in2 {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: #000000;
-        box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
-        z-index: 2000;
-        padding: 10px 0;
-        border-top: 1px solid #eee;
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #111;
+        border: 1px solid #333;
+        border-radius: 12px;
+        padding: 15px;
+        width: 180px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    .navbar-in2 ul {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        list-style: none;
+    .navbar-in2.show {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
-    .nav-link {
-        display: flex;
+    .navbar-inner2 ul {
         flex-direction: column;
-        align-items: center;
-        font-size: 11px;
-        font-weight: 600;
-        color: #666;
-        gap: 4px;
-        text-decoration: none;
+        gap: 10px;
     }
 
-    /* Icons ko pseudo-element se add kar sakte ho ya React me icons dalna better hai */
-    .nav-link::before {
-        font-size: 18px;
-        margin-bottom: 2px;
+    .navbar-inner1 {
+        display: none;
     }
 
-    /* Suggestion List & Profile Popup should open upwards */
-    .search-list, .profile-popup {
-        position: fixed;
-        bottom: 60px; /* Bottom bar ke upar */
-        top: auto;
-        width: 90%;
-        left: 5%;
-        border-radius: 10px;
+    /* Hide home in dropdown if not needed */
+}
+
+/* 3. SMALL MOBILE (< 480px) */
+@media (max-width: 480px) {
+    .src-inp {
+        display: none;
     }
 
-    /* Body padding taaki content bottom bar ke peeche na chhup jaye */
-    body {
-        padding-bottom: 70px;
+    .navbar {
+        padding: 0 15px;
     }
 }
 
 
 
 
- /* profile css  */
 
 
 
- /* --- Profile Area Container --- */
- .profile-wrapper {
-     margin-left: 20px;
-     display: inline-block;
-     z-index: 100;
-     /* Taaki popup sabke upar dikhe */
- }
+/* profile ki css  */
 
- /* --- Round Profile Button (Jisme 'B' dikhega) --- */
- .profile-icon-btn {
-     background-color: #f38222;
-     /* Aapka Orange Theme */
-     color: white;
-     border: none;
-     width: 42px;
-     height: 42px;
-     border-radius: 50%;
-     /* Gol karne ke liye */
-     cursor: pointer;
-     font-size: 18px;
-     font-weight: 700;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-     transition: all 0.3s ease;
- }
 
- .profile-icon-btn:hover {
-     transform: scale(1.05);
-     background-color: #000;
-     /* Hover par black transition */
- }
 
- /* --- Floating Profile Popup --- */
- .profile-popup {
-     position: absolute;
-     top: 55px;
-     /* Button ke theek niche */
-     right: 0;
-     /* Right side se align */
-     width: 220px;
-     background-color: #fff;
-     border-radius: 12px;
-     padding: 20px;
-     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-     /* Premium shadow */
-     border: 1px solid #eee;
-     text-align: center;
-     animation: fadeIn 0.3s ease;
-     /* Khulte waqt halka animation */
- }
 
- /* @keyframes fadeIn {
-     from {
-         opacity: 0;
-         transform: translateY(-10px);
-     }
+.profile-wrapper{position:relative;display:flex;align-items:center;}
 
-     to {
-         opacity: 1;
-         transform: translateY(0);
-     }
- } */
+.profile-icon-btn{width:42px;height:42px;border-radius:50%;border:none;background:linear-gradient(135deg,#ff7a00,#ffb347);color:#fff;font-weight:600;font-size:18px;cursor:pointer;transition:0.3s ease;}
+.profile-icon-btn:hover{transform:scale(1.05);box-shadow:0 0 10px rgba(255,122,0,0.6);}
 
- /* --- User Info Text inside Popup --- */
- .user-info p {
-     margin: 5px 0;
-     color: #333;
- }
+.profile-popup{position:absolute;top:55px;right:0;width:260px;background:#111;color:#fff;border-radius:12px;padding:15px;box-shadow:0 8px 25px rgba(0,0,0,0.5);z-index:999;animation:fadeIn 0.25s ease;}
 
- .user-info hr {
-     margin: 15px 0;
-     border: 0;
-     border-top: 1px solid #eee;
- }
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
- /* --- Logout & Login Buttons inside Popup --- */
- .logout-btn {
-     width: 100%;
-     padding: 10px;
-     background-color: #000;
-     color: white;
-     border: none;
-     border-radius: 6px;
-     font-weight: 600;
-     cursor: pointer;
-     transition: 0.3s;
- }
+.user-info{display:flex;flex-direction:column;}
 
- .logout-btn:hover {
-     background-color: #f38222;
- }
+.profile-header{text-align:center;margin-bottom:10px;}
+.profile-header h4{margin:0;font-size:16px;color:#ff7a00;}
+.profile-header p{margin:2px 0 0;font-size:12px;color:#aaa;}
 
- .pop-login-btn {
-     display: block;
-     margin-top: 10px;
-     background-color: #f38222;
-     color: white;
-     text-decoration: none;
-     padding: 10px;
-     border-radius: 6px;
-     font-weight: 600;
-     font-size: 14px;
- }
+.profile-actions{display:flex;flex-direction:column;gap:8px;}
+.profile-actions button{padding:8px;border-radius:8px;border:none;background:#222;color:#fff;cursor:pointer;transition:0.3s;font-size:13px;}
+.profile-actions button:hover{background:#ff7a00;color:#000;}
 
- .pop-login-btn:hover {
-     background-color: #000;
- }
+.logout-btn{background:#ff3b3b!important;}
+.logout-btn:hover{background:#ff0000!important;color:#fff;}
 
- .login-prompt p {
-     font-size: 14px;
-     color: #666;
-     margin-bottom: 10px;
- }
+.profile-form{display:flex;flex-direction:column;gap:10px;}
+.profile-form h5{margin:0;text-align:center;color:#ff7a00;}
+
+.profile-form input{padding:8px;border-radius:6px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:13px;outline:none;transition:0.3s;}
+.profile-form input:focus{border-color:#ff7a00;box-shadow:0 0 5px rgba(255,122,0,0.5);}
+
+.form-btns{display:flex;justify-content:space-between;gap:6px;}
+.form-btns button{flex:1;padding:7px;border-radius:6px;border:none;cursor:pointer;font-size:12px;transition:0.3s;}
+.form-btns button:first-child{background:#ff7a00;color:#000;}
+.form-btns button:first-child:hover{background:#ff9500;}
+.form-btns button:last-child{background:#333;color:#fff;}
+.form-btns button:last-child:hover{background:#555;}
+
+.login-prompt{text-align:center;}
+.pop-login-btn{display:inline-block;margin-top:8px;padding:6px 12px;background:#ff7a00;color:#000;border-radius:6px;text-decoration:none;font-size:13px;transition:0.3s;}
+.pop-login-btn:hover{background:#ff9500;}
+
+@media(max-width:768px){.profile-popup{width:220px;right:-10px;}.profile-icon-btn{width:38px;height:38px;font-size:16px;}}
+
+@media(max-width:480px){.profile-popup{width:200px;right:-20px;padding:12px;}.profile-header h4{font-size:14px;}.profile-header p{font-size:11px;}.profile-actions button{font-size:12px;padding:7px;}.profile-form input{font-size:12px;padding:7px;}}
 
 
 
 
 
 
- /* banner.jsx ki css */
+
+
+/* banner.jsx ki css */
 
 
 
 
- /* Color Palette:
+/* Color Palette:
    Orange: #FF8C00 (Darker Orange for text/icons)
    Light Orange: #FFA500 (Main Theme Orange)
    Black: #1A1A1A
    White: #FFFFFF
 */
 
- .box {
-     width: 96.85%;
-     min-height: 85vh;
-     background: url('../assets/images/bannerimg.jpg');
-     background-size: cover;
-     background-position: center;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     padding: 20px;
-     margin: 0px;
-     /* margin-top: 0px; */
-     color: white;
- }
+.box {
+    width: 100%;
+    min-height: 85vh;
+    background: url('../assets/images/bannerimg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 0px;
+    /* margin-top: 0px; */
+    color: white;
+}
 
- /* Header Text Section */
- .box-in1 {
-     text-align: center;
-     margin-bottom: 40px;
-     animation: fadeInDown 1s ease-out;
- }
+/* Header Text Section */
+.box-in1 {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
 
- .box-in1 h1 {
-     color: #1a1a1ac1;
-     font-size: 3rem;
-     font-weight: 800;
-     margin-bottom: 10px;
-     text-transform: uppercase;
-     letter-spacing: 2px;
- }
+.box-in1 h1 {
+    color: #1a1a1ac1;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
- .box-in1 p {
-     font-size: 1.2rem;
-     color: #ffa704;
-     position: relative;
-     left: -240px;
-     top: -10px;
-     /* Light Orange */
-     font-weight: 500;
- }
+.box-in1 p {
+    font-size: 1.2rem;
+    color: #ffa704;
+    position: relative;
+    left: -240px;
+    top: -10px;
+    /* Light Orange */
+    font-weight: 500;
+}
 
- /* Booking Card Container */
- .box-in2 {
-     background: rgba(255, 255, 255, 0.1);
-     backdrop-filter: blur(10px);
-     /* Glassmorphism */
-     border: 1px solid rgba(255, 255, 255, 0.2);
-     padding: 30px;
-     border-radius: 20px;
-     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-     width: 100%;
-     max-width: 1000px;
-     animation: fadeInUp 1s ease-out;
- }
+/* Booking Card Container */
+.box-in2 {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    /* Glassmorphism */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 1000px;
+    animation: fadeInUp 1s ease-out;
+}
 
- .booking-inps {
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-     gap: 20px;
-     align-items: flex-end;
- }
+.booking-inps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    align-items: flex-end;
+}
 
- /* Input Fields & Labels */
- .info-input {
-     display: flex;
-     flex-direction: column;
-     gap: 8px;
- }
+/* Input Fields & Labels */
+.info-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
- label {
-     font-size: 0.9rem;
-     color: #FFA500;
-     font-weight: 600;
-     text-transform: uppercase;
- }
+label {
+    font-size: 0.9rem;
+    color: #FFA500;
+    font-weight: 600;
+    text-transform: uppercase;
+}
 
- .info-input select,
- .info-input input {
-     padding: 12px;
-     border-radius: 8px;
-     border: 2px solid transparent;
-     background: white;
-     color: #1A1A1A;
-     font-size: 1rem;
-     outline: none;
-     transition: all 0.3s ease;
- }
+.info-input select,
+.info-input input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: white;
+    color: #1A1A1A;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
 
- .info-input select:focus,
- .info-input input:focus {
-     border-color: #FFA500;
-     box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
- }
+.info-input select:focus,
+.info-input input:focus {
+    border-color: #FFA500;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
+}
 
- /* Find Bike Button */
- .find-btn {
-     background: #FFA500;
-     color: black;
-     border: none;
-     padding: 15px 30px;
-     border-radius: 8px;
-     font-size: 1.1rem;
-     font-weight: 700;
-     cursor: pointer;
-     transition: all 0.3s ease;
-     text-transform: uppercase;
-     box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
- }
+/* Find Bike Button */
+.find-btn {
+    background: #FFA500;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+}
 
- .find-btn:hover {
-     background: white;
-     color: #FFA500;
-     transform: translateY(-3px);
-     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
- }
+.find-btn:hover {
+    background: white;
+    color: #FFA500;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
 
- /* Bottom Heading */
- .content {
-     text-align: center;
-     padding: 40px 20px;
-     background: #1A1A1A;
-     color: rgb(11, 0, 0);
-     margin: 80px;
-     font-size: 1.5rem;
-     border-bottom: 4px solid #FFA500;
- }
+/* Bottom Heading */
+.content {
+    text-align: center;
+    padding: 40px 20px;
+    background: #1A1A1A;
+    color: rgb(11, 0, 0);
+    margin: 80px;
+    font-size: 1.5rem;
+    border-bottom: 4px solid #FFA500;
+}
 
- /* Animations */
- @keyframes fadeInUp {
-     from {
-         opacity: 0;
-         transform: translateY(30px);
-     }
-
-     to {
-         opacity: 1;
-         transform: translateY(0);
-     }
- }
-
- @keyframes fadeInDown {
-     from {
-         opacity: 0;
-         transform: translateY(-30px);
-     }
-
-     to {
-         opacity: 1;
-         transform: translateY(0);
-     }
- }
-
- /* --- Responsive Design (Mobile & Tablet) --- */
-
- @media (max-width: 768px) {
-    .box{
-        width: 90%;
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-  
-     .box-in1 h1 {
-         font-size: 2rem;
-     }
 
-     .box-in2 {
-         padding: 20px;
-         width: 95%;
-margin-left: -10px;     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-     .booking-inps {
-         grid-template-columns: 1fr;
-         /* Single column for mobile */
-     }
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
 
-     .find-btn {
-         width: 100%;
-         margin-top: 10px;
-     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-     .content {
-         font-size: 1.1rem;
-     }
- }
+/* --- Responsive Design (Mobile & Tablet) --- */
+
+@media (max-width: 768px) {
+    .box {
+        width: 100%;
+    }
+
+    .box-in1 h1 {
+        font-size: 2rem;
+    }
+
+    .box-in2 {
+        padding: 20px;
+        width: 95%;
+        margin-left: -10px;
+    }
+
+    .booking-inps {
+        grid-template-columns: 1fr;
+        /* Single column for mobile */
+    }
+
+    .find-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .content {
+        font-size: 1.1rem;
+    }
+}
 
 
 
 
 
- /* productcard.jsx ki css */
-
- 
+/* productcard.jsx ki css */
 
 
 
 
- /* Product Page Main Container */
+
+
+/* Product Page Main Container */
 .product-page {
     padding: 60px 20px;
     background-color: #ffffff;
@@ -690,10 +553,12 @@ margin-left: -10px;     }
     border: 1px solid #eee;
     overflow: hidden;
     display: flex;
-    flex-direction: column; /* Isse content vertical sequence mein rahega */
+    flex-direction: column;
+    /* Isse content vertical sequence mein rahega */
     transition: all 0.3s ease-in-out;
     position: relative;
-    height: 100%; /* Saare cards ek barabar height ke dikhenge */
+    height: 100%;
+    /* Saare cards ek barabar height ke dikhenge */
 }
 
 .card-box:hover {
@@ -721,7 +586,8 @@ margin-left: -10px;     }
 .p-img {
     width: 100%;
     height: 200px;
-    object-fit: contain; /* Bike ki photo kategi nahi */
+    object-fit: contain;
+    /* Bike ki photo kategi nahi */
     padding: 20px;
     background: #fdfdfd;
     transition: transform 0.4s ease;
@@ -736,7 +602,8 @@ margin-left: -10px;     }
     padding: 20px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Ye content ko card ki bachi hui jagah fill karne dega */
+    flex-grow: 1;
+    /* Ye content ko card ki bachi hui jagah fill karne dega */
 }
 
 .card-box .content h3 {
@@ -749,7 +616,8 @@ margin-left: -10px;     }
 /* Pricing Section */
 .price-info {
     margin-bottom: 20px;
-    flex-grow: 1; /* Isse "Book Now" button hamesha bottom par push ho jayega */
+    flex-grow: 1;
+    /* Isse "Book Now" button hamesha bottom par push ho jayega */
 }
 
 .amt {
@@ -792,7 +660,7 @@ margin-left: -10px;     }
 }
 
 
-.content{
+.content {
     background-color: white;
 }
 
@@ -846,9 +714,10 @@ margin-left: -10px;     }
     .product-page .title {
         font-size: 1.8rem;
     }
-    
+
     .product-grid {
-        grid-template-columns: 1fr; /* Mobile par single card dikhega */
+        grid-template-columns: 1fr;
+        /* Mobile par single card dikhega */
     }
 
     .p-img {
@@ -867,211 +736,219 @@ margin-left: -10px;     }
 
 /* --- Premium Product Detail Page --- */
 .product-detail-page {
-  padding: 60px 10%;
-  background: #ffffff; /* Clean white background */
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    padding: 60px 10%;
+    background: #ffffff;
+    /* Clean white background */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .detail-wrapper {
-  display: flex;
-  gap: 50px;
-  max-width: 1050px;
-  width: 100%;
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 20px;
-  align-items: center;
-  border: 1px solid #f0f0f0;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); /* Very light professional shadow */
+    display: flex;
+    gap: 50px;
+    max-width: 1050px;
+    width: 100%;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    /* Very light professional shadow */
 }
 
 /* --- Image Section (Left) --- */
 .image-section {
-  flex: 1.2; /* Image ko thoda zyada space */
-  background: #fcfcfc;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  height: 400px;
-  border: 1px solid #f5f5f5;
-  position: relative;
-  overflow: hidden;
+    flex: 1.2;
+    /* Image ko thoda zyada space */
+    background: #fcfcfc;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    height: 400px;
+    border: 1px solid #f5f5f5;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Modern Watermark */
 .image-section::before {
-  content: 'BIKE';
-  position: absolute;
-  font-size: 80px;
-  font-weight: 900;
-  color: #000;
-  opacity: 0.03;
-  bottom: 5%;
-  right: -5%;
-  letter-spacing: 5px;
+    content: 'BIKE';
+    position: absolute;
+    font-size: 80px;
+    font-weight: 900;
+    color: #000;
+    opacity: 0.03;
+    bottom: 5%;
+    right: -5%;
+    letter-spacing: 5px;
 }
 
 .detail-img {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  object-fit: contain;
-  z-index: 1;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12));
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.12));
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .detail-img:hover {
-  transform: scale(1.05) translateY(-10px);
+    transform: scale(1.05) translateY(-10px);
 }
 
 /* --- Info Section (Right) --- */
 .info-section {
-  flex: 1;
-  text-align: left;
+    flex: 1;
+    text-align: left;
 }
 
 .brand-name-detail {
-  font-size: 13px;
-  font-weight: 600;
-  color: #FF8C00; /* Subtle Orange */
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 10px;
-  display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #FF8C00;
+    /* Subtle Orange */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .info-section h1 {
-  font-size: 34px; /* Sleek Size */
-  font-weight: 800;
-  color: #000;
-  margin: 0 0 20px 0;
-  line-height: 1.2;
+    font-size: 34px;
+    /* Sleek Size */
+    font-weight: 800;
+    color: #000;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
 }
 
 /* Price Box - Modern Sleek Look */
 .price-box {
-  background: #f9f9f9; 
-  padding: 12px 20px;
-  border-radius: 10px;
-  border-left: 4px solid #000;
-  margin-bottom: 30px;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
+    background: #f9f9f9;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border-left: 4px solid #000;
+    margin-bottom: 30px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
 }
 
 .price-amt {
-  font-size: 28px;
-  font-weight: 700;
-  color: #000;
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
 }
 
 .price-box small {
-  font-size: 14px;
-  font-weight: 500;
-  color: #FF8C00;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FF8C00;
 }
 
 /* Info List */
 .extra-info {
-  margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .extra-info p {
-  font-size: 14.5px;
-  color: #666;
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #f9f9f9;
-  padding-bottom: 10px;
+    font-size: 14.5px;
+    color: #666;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f9f9f9;
+    padding-bottom: 10px;
 }
 
 .extra-info b {
-  color: #000;
-  font-weight: 600;
-  width: 150px;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.5px;
+    color: #000;
+    font-weight: 600;
+    width: 150px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
 }
 
 /* --- Booking Button --- */
 .detail-book-btn {
-  padding: 16px 40px;
-  background: #000; /* Black button is more premium */
-  color: #FF8C00; /* Orange Text */
-  border: 1px solid #000;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: all 0.4s ease;
+    padding: 16px 40px;
+    background: #000;
+    /* Black button is more premium */
+    color: #FF8C00;
+    /* Orange Text */
+    border: 1px solid #000;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
 }
 
 .detail-book-btn:hover {
-  background: #FF8C00;
-  color: #000;
-  border-color: #FF8C00;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
+    background: #FF8C00;
+    color: #000;
+    border-color: #FF8C00;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
 }
 
 /* Loader Styling */
 .loader {
-  text-align: center;
-  font-size: 18px;
-  font-weight: 500;
-  color: #666;
-  margin-top: 100px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #666;
+    margin-top: 100px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 /* --- Responsive Design --- */
 @media (max-width: 1024px) {
-  .detail-wrapper {
-    flex-direction: column;
-    padding: 30px;
-    gap: 30px;
-    margin-top: 20px;
-  }
-  
-  .image-section {
-    width: 100%;
-    height: 300px;
-  }
+    .detail-wrapper {
+        flex-direction: column;
+        padding: 30px;
+        gap: 30px;
+        margin-top: 20px;
+    }
 
-  .info-section h1 {
-    font-size: 28px;
-    text-align: center;
-  }
+    .image-section {
+        width: 100%;
+        height: 300px;
+    }
 
-  .info-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    .info-section h1 {
+        font-size: 28px;
+        text-align: center;
+    }
 
-  .extra-info {
-      width: 100%;
-  }
+    .info-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .extra-info {
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
     .product-detail-page {
         padding: 20px 5%;
     }
+
     .detail-img {
         max-width: 240px;
     }
@@ -1088,10 +965,11 @@ margin-left: -10px;     }
 
 
 .main-containar {
-    width: 90%; /* Full width better lagta hai */
+    width: 100%;
+    /* Full width better lagta hai */
     min-height: 600px;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1)), 
-                url('../assets/images/banner2imgg.png'); 
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1)),
+        url('../assets/images/banner2imgg.png');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -1099,14 +977,16 @@ margin-left: -10px;     }
     flex-direction: column;
     justify-content: center;
     margin-bottom: 70px;
-    padding-left: 10%; /* Professional spacing */
+    padding-left: 10%;
+    /* Professional spacing */
     overflow: hidden;
     transition: all 0.5s ease;
 }
 
 /* Heading Highlights */
 .cnt {
-    color: #FF8C00; /* Premium Light Orange */
+    color: #FF8C00;
+    /* Premium Light Orange */
     text-align: center;
     font-size: 24px;
     font-weight: 700;
@@ -1131,8 +1011,10 @@ margin-left: -10px;     }
 }
 
 .main-in-in h1 {
-    font-size: 55px; /* Thoda aur bold aur bada look */
-    color: #000; /* Black for depth */
+    font-size: 55px;
+    /* Thoda aur bold aur bada look */
+    color: #000;
+    /* Black for depth */
     font-weight: 900;
     margin: 0;
     line-height: 1.1;
@@ -1179,7 +1061,8 @@ margin-left: -10px;     }
     padding: 16px 45px;
     font-size: 17px;
     font-weight: 800;
-    border-radius: 8px; /* Square edges with slight round for modern look */
+    border-radius: 8px;
+    /* Square edges with slight round for modern look */
     cursor: pointer;
     margin-top: 25px;
     text-transform: uppercase;
@@ -1198,8 +1081,15 @@ margin-left: -10px;     }
 
 /* --- Animations --- */
 @keyframes fadeInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* --- Complete Responsive Section --- */
@@ -1208,6 +1098,7 @@ margin-left: -10px;     }
     .main-in-in h1 {
         font-size: 45px;
     }
+
     .main-containar {
         padding-left: 5%;
     }
@@ -1242,8 +1133,9 @@ margin-left: -10px;     }
         width: 100%;
         max-width: 300px;
     }
-    
-    .cnt, .cnt2 {
+
+    .cnt,
+    .cnt2 {
         padding: 0 15px;
     }
 }
@@ -1252,7 +1144,7 @@ margin-left: -10px;     }
     .main-in-in h1 {
         font-size: 30px;
     }
-    
+
     .main-containar {
         margin-bottom: 40px;
         width: 90%;
@@ -1274,9 +1166,11 @@ margin-left: -10px;     }
 }
 
 .why {
-    color: #FF8C00; /* Light Orange */
+    color: #FF8C00;
+    /* Light Orange */
     text-align: center;
-    font-size: 18px; /* Sleek Smaller Size */
+    font-size: 18px;
+    /* Sleek Smaller Size */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1286,7 +1180,8 @@ margin-left: -10px;     }
 .cnt2 {
     color: #000000;
     text-align: center;
-    font-size: 15px; /* Clean & Subtle */
+    font-size: 15px;
+    /* Clean & Subtle */
     font-weight: 500;
     margin-top: 0px;
     margin-bottom: 40px;
@@ -1298,10 +1193,12 @@ margin-left: -10px;     }
     display: flex;
     gap: 25px;
     padding: 20px 15px 50px 15px;
-    overflow-x: auto; /* Scroll enabled */
+    overflow-x: auto;
+    /* Scroll enabled */
     scroll-behavior: smooth;
-    scroll-snap-type: x mandatory; /* Premium Snap Effect */
-    scrollbar-width: thin; 
+    scroll-snap-type: x mandatory;
+    /* Premium Snap Effect */
+    scrollbar-width: thin;
     scrollbar-color: #FF8C00 #f1f1f1;
 }
 
@@ -1323,8 +1220,9 @@ margin-left: -10px;     }
 /* --- Individual Card Styling --- */
 .card-in {
     /* Desktop: 3 cards dikhane ke liye width logic */
-    flex: 0 0 calc(33.33% - 20px); 
-    min-width: 300px; /* Card pichke na isliye minimum width */
+    flex: 0 0 calc(33.33% - 20px);
+    min-width: 300px;
+    /* Card pichke na isliye minimum width */
     background: #ffffff;
     padding: 40px 30px;
     border-radius: 15px;
@@ -1338,7 +1236,8 @@ margin-left: -10px;     }
     flex-direction: column;
     height: auto;
     min-height: 380px;
-    scroll-snap-align: start; /* Scroll karne par card yahan rukega */
+    scroll-snap-align: start;
+    /* Scroll karne par card yahan rukega */
 }
 
 /* Background Animated Glow */
@@ -1365,7 +1264,8 @@ margin-left: -10px;     }
 .card-icon {
     font-size: 22px;
     color: #FF8C00;
-    background: #000000; /* Black Theme */
+    background: #000000;
+    /* Black Theme */
     width: 55px;
     height: 55px;
     display: flex;
@@ -1385,7 +1285,8 @@ margin-left: -10px;     }
 
 /* Card Content Text */
 .card-in h3 {
-    font-size: 1.25rem; /* Clean Size */
+    font-size: 1.25rem;
+    /* Clean Size */
     font-weight: 700;
     color: #1a1a1a;
     margin-bottom: 15px;
@@ -1393,7 +1294,8 @@ margin-left: -10px;     }
 }
 
 .card-in p {
-    font-size: 0.9rem; /* Professional Small Text */
+    font-size: 0.9rem;
+    /* Professional Small Text */
     color: #666;
     line-height: 1.6;
     margin: 0;
@@ -1414,7 +1316,7 @@ margin-left: -10px;     }
     .head-containair {
         padding: 60px 20px;
     }
-    
+
     .card-containair {
         gap: 15px;
         padding-bottom: 30px;
@@ -1422,7 +1324,7 @@ margin-left: -10px;     }
 
     .card-in {
         /* Screen ka 88% width taaki side se dusra card thoda dikhe (Scroll signal) */
-        flex: 0 0 88%; 
+        flex: 0 0 88%;
         min-width: 270px;
         padding: 30px 25px;
         min-height: 350px;
@@ -1451,12 +1353,14 @@ margin-left: -10px;     }
     padding: 60px 10%;
     background-color: #ffffff;
     text-align: center;
-    margin-top: 0px; /* Purana negative margin hataya hai taaki layout clean rahe */
+    margin-top: 0px;
+    /* Purana negative margin hataya hai taaki layout clean rahe */
 }
 
 /* Headings: Achievements, Clients, Featured On */
 .cntt {
-    color: #FF8C00; /* Premium Light Orange */
+    color: #FF8C00;
+    /* Premium Light Orange */
     text-align: center;
     font-size: 22px;
     font-weight: 700;
@@ -1500,19 +1404,22 @@ margin-left: -10px;     }
 
 .stc:hover {
     transform: translateY(-10px);
-    background: rgba(255, 140, 0, 0.03); /* Lightest Orange glow */
+    background: rgba(255, 140, 0, 0.03);
+    /* Lightest Orange glow */
 }
 
 /* Icons Styling */
 .orange-iconn {
     font-size: 45px;
-    color: #000000; /* Black icons look more premium */
+    color: #000000;
+    /* Black icons look more premium */
     margin-bottom: 15px;
     transition: all 0.3s ease;
 }
 
 .stc:hover .orange-iconn {
-    color: #FF8C00; /* Hover par orange hoga */
+    color: #FF8C00;
+    /* Hover par orange hoga */
     transform: scale(1.1);
 }
 
@@ -1526,9 +1433,10 @@ margin-left: -10px;     }
 
 /* Client & Featured Logos Styling */
 .stc-img {
-    width: 130px; 
+    width: 130px;
     height: auto;
-    filter: grayscale(0%); /* Logos shuru me black & white rahenge */
+    filter: grayscale(0%);
+    /* Logos shuru me black & white rahenge */
     opacity: 0.8;
     transition: all 0.5s ease;
     cursor: pointer;
@@ -1548,6 +1456,7 @@ margin-left: -10px;     }
     .main-sticker-containair {
         padding: 60px 5%;
     }
+
     .stc-img {
         width: 110px;
     }
@@ -1557,13 +1466,14 @@ margin-left: -10px;     }
     .main-sticker-containair {
         padding: 40px 20px;
     }
-    
+
     .sticker-cnt {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Mobile me 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+        /* Mobile me 2 columns */
         gap: 30px;
     }
-    
+
     .stc {
         min-width: auto;
         padding: 10px;
@@ -1571,7 +1481,8 @@ margin-left: -10px;     }
 
     .stc-img {
         width: 100px;
-        filter: grayscale(0%); /* Mobile par directly colored dikhao (better UX) */
+        filter: grayscale(0%);
+        /* Mobile par directly colored dikhao (better UX) */
         opacity: 1;
         margin: 10px auto;
     }
@@ -1588,10 +1499,11 @@ margin-left: -10px;     }
 
 @media (max-width: 480px) {
     .sticker-cnt {
-        grid-template-columns: 1fr; /* Bahut chote phones par 1 column */
+        grid-template-columns: 1fr;
+        /* Bahut chote phones par 1 column */
         gap: 20px;
     }
-    
+
     .stc {
         border-bottom: 1px solid #f0f0f0;
         padding-bottom: 20px;
@@ -1614,7 +1526,8 @@ margin-left: -10px;     }
 
 /* Titles and Subtitles */
 .faq-main-container .why {
-    color: #FF8C00; /* Light Orange */
+    color: #FF8C00;
+    /* Light Orange */
     text-align: center;
     font-size: 22px;
     font-weight: 700;
@@ -1638,9 +1551,10 @@ margin-left: -10px;     }
 .premium-cat-title {
     font-size: 1.1rem;
     color: #000;
-    background: rgba(255, 140, 0, 0.08); /* Light Orange Hint */
+    background: rgba(255, 140, 0, 0.08);
+    /* Light Orange Hint */
     padding: 15px 25px;
-    border-left: 6px solid #FF8C00; 
+    border-left: 6px solid #FF8C00;
     margin-bottom: 25px;
     border-radius: 0 12px 12px 0;
     font-weight: 800;
@@ -1652,17 +1566,19 @@ margin-left: -10px;     }
 .premium-item {
     background: #fff;
     border: 1px solid #f0f0f0;
-    border-radius: 15px; /* Thoda aur rounded modern look ke liye */
+    border-radius: 15px;
+    /* Thoda aur rounded modern look ke liye */
     margin-bottom: 18px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
     overflow: hidden;
 }
 
 .premium-item:hover {
     border-color: #FF8C00;
     box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
-    transform: translateX(8px); /* Smooth nudge effect */
+    transform: translateX(8px);
+    /* Smooth nudge effect */
 }
 
 /* Summary (Question) Styling */
@@ -1690,14 +1606,14 @@ summary::after {
     content: '+';
     font-size: 20px;
     font-weight: 300;
-    color: #FF8C00; 
-    background: #000; 
+    color: #FF8C00;
+    background: #000;
     width: 42px;
     height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px; 
+    border-radius: 12px;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
@@ -1721,7 +1637,7 @@ details[open] summary {
 }
 
 details[open] summary::after {
-    content: '−'; 
+    content: '−';
     background: #000;
     color: #FF8C00;
     transform: rotate(180deg);
@@ -1733,7 +1649,8 @@ details[open] summary::after {
     color: #555;
     font-size: 15.5px;
     line-height: 1.8;
-    border-top: 1px dashed #eee; /* Divider inside */
+    border-top: 1px dashed #eee;
+    /* Divider inside */
     margin-top: 5px;
     padding-top: 20px;
     animation: slideUpFade 0.5s ease forwards;
@@ -1745,6 +1662,7 @@ details[open] summary::after {
         opacity: 0;
         transform: translateY(15px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1763,7 +1681,7 @@ details[open] summary::after {
     .faq-main-container {
         padding: 60px 20px;
     }
-    
+
     .faq-main-container .why {
         font-size: 1.4rem;
     }
@@ -1791,7 +1709,8 @@ details[open] summary::after {
     }
 
     .premium-item:hover {
-        transform: translateX(0); /* Mobile par nudge effect hata diya for better UX */
+        transform: translateX(0);
+        /* Mobile par nudge effect hata diya for better UX */
     }
 }
 
@@ -1817,13 +1736,16 @@ details[open] summary::after {
 
 /* Header Styling - Sleek & Small */
 .reaview-container .why {
-    color: #FF8C00; /* Light Orange */
+    color: #FF8C00;
+    /* Light Orange */
     text-align: center;
-    font-size: 18px; /* Small font size */
+    font-size: 18px;
+    /* Small font size */
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-top: 0; /* Margin fix */
+    margin-top: 0;
+    /* Margin fix */
     margin-bottom: 5px;
 }
 
@@ -1845,7 +1767,8 @@ details[open] summary::after {
     overflow-x: auto;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox: hide scrollbar for cleaner look */
+    scrollbar-width: none;
+    /* Firefox: hide scrollbar for cleaner look */
 }
 
 /* Hide scrollbar for Chrome/Safari but keep functionality */
@@ -1855,7 +1778,7 @@ details[open] summary::after {
 
 /* --- Sleek Review Card Styling --- */
 .review-card {
-    flex: 0 0 calc(33.33% - 15px); 
+    flex: 0 0 calc(33.33% - 15px);
     background: #ffffff;
     border: 1px solid #f2f2f2;
     border-radius: 12px;
@@ -1864,7 +1787,8 @@ details[open] summary::after {
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    text-align: left; /* Left align is more readable */
+    text-align: left;
+    /* Left align is more readable */
     transition: all 0.3s ease;
 }
 
@@ -1876,20 +1800,23 @@ details[open] summary::after {
 
 /* Review Text (Paragraph) - Modern & Clean */
 .review-card p {
-    font-size: 14px; /* Smaller font */
+    font-size: 14px;
+    /* Smaller font */
     color: #666;
     line-height: 1.6;
     margin-bottom: 20px;
     font-weight: 400;
     position: relative;
-    flex-grow: 1; /* Aligns names at the bottom */
+    flex-grow: 1;
+    /* Aligns names at the bottom */
 }
 
 /* Premium Quote Accent */
 .review-card p::before {
     content: '“';
     font-size: 45px;
-    color: rgba(255, 140, 0, 0.15); /* Very subtle orange */
+    color: rgba(255, 140, 0, 0.15);
+    /* Very subtle orange */
     position: absolute;
     top: -25px;
     left: -5px;
@@ -1936,7 +1863,8 @@ details[open] summary::after {
     }
 
     .review-card {
-        flex: 0 0 88%; /* Mobile par full card focus */
+        flex: 0 0 88%;
+        /* Mobile par full card focus */
         padding: 25px;
     }
 
@@ -1960,13 +1888,14 @@ details[open] summary::after {
 .footar-container {
     padding: 80px 10% 40px 10%;
     /* Dark overlay ke sath image background */
-    background: linear-gradient(rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.95)), 
-                url(../assets/images/footerbg.jfif);
+    background: linear-gradient(rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.95)),
+        url(../assets/images/footerbg.jfif);
     background-size: cover;
     background-position: center;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
-    border-top: 2px solid #FF8C00; /* Top border accent */
+    border-top: 2px solid #FF8C00;
+    /* Top border accent */
 }
 
 /* --- Top Section (Grid Layout) --- */
@@ -1975,7 +1904,8 @@ details[open] summary::after {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
     padding-bottom: 50px;
-    border-bottom: 1px solid rgba(255, 140, 0, 0.2); /* Subtle divider */
+    border-bottom: 1px solid rgba(255, 140, 0, 0.2);
+    /* Subtle divider */
 }
 
 /* Column Styling */
@@ -1986,7 +1916,8 @@ details[open] summary::after {
 
 /* Headings Styling - Small & Clean */
 .heading {
-    font-size: 16px; /* Sleek size */
+    font-size: 16px;
+    /* Sleek size */
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 25px;
@@ -2012,8 +1943,10 @@ details[open] summary::after {
 }
 
 .container-in ul li {
-    color: #aaa; /* Soft white/grey */
-    font-size: 13.5px; /* Clean small size */
+    color: #aaa;
+    /* Soft white/grey */
+    font-size: 13.5px;
+    /* Clean small size */
     margin-bottom: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -2036,7 +1969,8 @@ details[open] summary::after {
     letter-spacing: 1px;
 }
 
-.time, .container-in p {
+.time,
+.container-in p {
     color: #999;
     font-size: 13.5px;
     line-height: 1.7;
@@ -2069,9 +2003,11 @@ details[open] summary::after {
 .social-media-icon img {
     width: 36px;
     height: 36px;
-    background: rgba(255, 255, 255, 0.05); /* Glass effect */
+    background: rgba(255, 255, 255, 0.05);
+    /* Glass effect */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px; /* Squircle style */
+    border-radius: 10px;
+    /* Squircle style */
     padding: 8px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
@@ -2081,7 +2017,8 @@ details[open] summary::after {
     background: #FF8C00;
     border-color: #FF8C00;
     transform: translateY(-5px) rotate(8deg);
-    filter: brightness(0); /* Icon black ho jayega hover par */
+    filter: brightness(0);
+    /* Icon black ho jayega hover par */
 }
 
 /* App Store Icons */
@@ -2093,7 +2030,8 @@ details[open] summary::after {
 .play-app img {
     height: 35px;
     transition: 0.3s;
-    filter: grayscale(1); /* Premium minimal look */
+    filter: grayscale(1);
+    /* Premium minimal look */
     opacity: 0.7;
 }
 
@@ -2113,7 +2051,8 @@ details[open] summary::after {
 
 @media (max-width: 768px) {
     .footer-in {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for tablets */
         gap: 30px;
     }
 
@@ -2122,17 +2061,19 @@ details[open] summary::after {
         gap: 25px;
         text-align: center;
     }
-    
-    .social-media-icon, .play-app {
+
+    .social-media-icon,
+    .play-app {
         justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
     .footer-in {
-        grid-template-columns: 1fr; /* Single column for small phones */
+        grid-template-columns: 1fr;
+        /* Single column for small phones */
     }
-    
+
     .heading {
         font-size: 15px;
     }
@@ -2158,170 +2099,222 @@ details[open] summary::after {
 
 
 
-/* --- Order/Booking Container Box --- */
-.order-box {
-    max-width: 420px; /* Thoda chota aur sleek */
-    margin: 40px auto;
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 35px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-    font-family: 'Poppins', sans-serif;
-    border: 1px solid #f0f0f0;
+
+
+/* MAIN CONTAINER */
+.order-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: white;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-.order-box h3 {
-    text-align: center;
-    color: #000;
-    font-size: 20px; /* Clean smaller size */
-    margin-bottom: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* GRID LAYOUT */
+.order-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
 }
 
-/* User & Bike Info Section - Modern Sleek Look */
-.user-static-info {
-    background: #fafafa; /* Very light grey */
-    padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #f0f0f0;
-    position: relative;
+/* LEFT FORM */
+.order-form {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 115, 0, 0.2);
+  animation: fadeIn 0.5s ease;
 }
 
-/* Orange Accent Line */
-.user-static-info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 3px;
-    background: #FF8C00;
-    border-radius: 0 0 10px 10px;
+.order-form h2 {
+  margin-bottom: 20px;
+  color: orange;
 }
 
-.user-static-info img {
-    width: 130px !important; /* Slightly smaller for elegance */
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 18px;
-    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.1));
-    transition: transform 0.3s ease;
+/* USER BOX */
+.user-box {
+  background: #111;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border-left: 4px solid orange;
 }
 
-.user-static-info:hover img {
-    transform: scale(1.05);
+/* BIKE BOX */
+.bike-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #111;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  transition: 0.3s;
 }
 
-.user-static-info p {
-    margin: 4px 0;
-    font-size: 14px; /* Subtle size */
-    color: #666;
-    font-weight: 400;
+.bike-box:hover {
+  transform: scale(1.02);
+  background: #1f1f1f;
 }
 
-.user-static-info strong {
-    color: #000; /* Professional Black */
-    font-weight: 600;
+.bike-box img {
+  width: 80px;
+  border-radius: 6px;
 }
 
-/* Date Inputs - Refined Styling */
-.date-inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.bike-box span {
+  color: orange;
+  font-weight: bold;
 }
 
-.date-inputs label {
-    font-size: 12px;
-    font-weight: 700;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: -15px;
-    padding-left: 2px;
+/* INPUT */
+.order-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 15px;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  outline: none;
+  transition: 0.3s;
 }
 
-.date-inputs input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #333;
-    background: #fdfdfd;
-    transition: all 0.3s ease;
-    outline: none;
+.order-form input:focus {
+  border: 1px solid orange;
+  background: #111;
 }
 
-.date-inputs input:focus {
-    border-color: #000; /* Black focus border */
-    background-color: #fff;
-    box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.1); /* Subtle Orange Glow */
+/* BUTTON */
+.book-btn {
+  width: 100%;
+  padding: 12px;
+  background: orange;
+  border: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* Confirm Button - High End CTA */
-.book-now-btn {
-    width: 100%;
-    margin-top: 35px;
-    padding: 16px;
-    background: #000; /* Black background for premium feel */
-    color: #FF8C00; /* Orange text */
-    border: 1px solid #000;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.book-btn:hover {
+  background: #ff8800;
+  transform: scale(1.03);
 }
 
-.book-now-btn:hover {
-    background: #FF8C00;
-    color: #000;
-    border-color: #FF8C00;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
+.book-btn:disabled {
+  background: gray;
+  cursor: not-allowed;
 }
 
-.book-now-btn:active {
-    transform: scale(0.96);
+/* RIGHT SUMMARY */
+.summary-box {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  height: fit-content;
+  box-shadow: 0 0 15px rgba(255, 115, 0, 0.2);
+  animation: slideUp 0.5s ease;
 }
 
-/* Toast Customization - Sleek Dark Theme */
-.Toastify__toast--success {
-    background: #1a1a1a !important;
-    color: #FF8C00 !important;
-    border-radius: 8px !important;
-    font-family: 'Poppins', sans-serif !important;
-    font-size: 14px !important;
+.summary-box h3 {
+  color: orange;
+  margin-bottom: 15px;
 }
 
-/* --- Responsive Design --- */
+/* SUMMARY ITEMS */
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #333;
+}
+
+.summary-item.total {
+  font-size: 18px;
+  font-weight: bold;
+  color: orange;
+}
+
+/* NOTE */
+.note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔥 RESPONSIVE 1 (TABLET) */
+@media (max-width: 900px) {
+  .order-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-box {
+    order: -1;
+  }
+}
+
+/* 🔥 RESPONSIVE 2 (MOBILE) */
 @media (max-width: 600px) {
-    .order-box {
-        max-width: 90%;
-        padding: 25px 20px;
-        margin: 30px auto;
-    }
+  .order-container {
+    padding: 20px 10px;
+  }
 
-    .order-box h3 {
-        font-size: 18px;
-    }
+  .order-form,
+  .summary-box {
+    padding: 15px;
+  }
 
-    .user-static-info img {
-        width: 110px !important;
-    }
+  .bike-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .book-now-btn {
-        padding: 14px;
-        font-size: 14px;
-    }
+  .bike-box img {
+    width: 100%;
+  }
+}
+
+/* 🔥 RESPONSIVE 3 (SMALL MOBILE) */
+@media (max-width: 400px) {
+  .order-form h2 {
+    font-size: 18px;
+  }
+
+  .summary-box h3 {
+    font-size: 16px;
+  }
+
+  .book-btn {
+    padding: 10px;
+  }
 }

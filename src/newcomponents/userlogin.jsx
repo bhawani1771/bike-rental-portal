@@ -40,7 +40,7 @@ function Auth() {
             if (isLogin) {
 
 
-                const res = await fetch("http://localhost:4000/api/bikeusers");
+                const res = await fetch("https://onn-bike-rental-backend.onrender.com/api/bikeusers");
                 const users = await res.json();
 
 
