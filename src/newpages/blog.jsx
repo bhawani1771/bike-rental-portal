@@ -3,7 +3,7 @@ import "./page.css";
 
 function Newblog() {
   const blogPosts = [
-    { title: "Top 5 Bikes for Sardarshahar Roads", excerpt: "Explore the best bikes suitable for local traffic and highway rides...", date: "April 19, 2026", category: "Guides" },
+    { title: "Top 5 Bikes in your city Roads", excerpt: "Explore the best bikes suitable for local traffic and highway rides...", date: "April 19, 2026", category: "Guides" },
     { title: "Maintenance Tips for Rental Bikes", excerpt: "How we ensure every bike you rent is in pristine condition for your safety...", date: "April 18, 2026", category: "Tips" },
     { title: "New Fleet Arrival: 2026 Models", excerpt: "Exciting news! We have added the latest Maruti Suzuki e-Vitara inspired bikes...", date: "April 17, 2026", category: "News" },
   ];
