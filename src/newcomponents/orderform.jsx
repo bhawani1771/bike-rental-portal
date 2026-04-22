@@ -109,6 +109,7 @@ function OrderForm() {
                     <div className="user-box">
                         <p><strong>Name:</strong> {user?.username || "Guest"}</p>
                         <p><strong>Email:</strong> {user?.email || "-"}</p>
+                        <p><strong>Mobile no:</strong> {user?.number || "-"}</p>
                     </div>
 
                     {/* BIKE INFO */}

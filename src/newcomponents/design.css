@@ -242,7 +242,7 @@ body {
 }
 
 /* 3. SMALL MOBILE (< 480px) */
-@media (max-width: 480px) {
+@media (max-width: 550px) {
     .src-inp {
         display: none;
     }
@@ -488,7 +488,7 @@ label {
 
     .booking-inps {
         grid-template-columns: 1fr;
-        /* Single column for mobile */
+      
     }
 
     .find-btn {
@@ -2184,9 +2184,19 @@ details[open] summary::after {
 .user-box {
   background: #111;
   padding: 10px;
+  text-align: left;
   border-radius: 6px;
   margin-bottom: 15px;
   border-left: 4px solid orange;
+}
+
+
+.user-box p{
+    margin-bottom: 10px;
+}
+
+.user-box strong{
+    color: orange;
 }
 
 /* BIKE BOX */

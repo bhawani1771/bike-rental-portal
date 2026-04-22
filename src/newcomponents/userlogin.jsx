@@ -51,6 +51,7 @@ function Auth() {
                   localStorage.setItem("loggedInUser", JSON.stringify(userFound));
                     toast.success(`Welcome back, ${userFound.username}!`);
                     setTimeout(() => navigate("/"), 2000);
+                    window.location.reload()
                 } else {
                     toast.error("Incorrect number or password");
                 }
