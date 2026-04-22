@@ -89,7 +89,10 @@ function Contactus() {
         </p>
       </div>
 
-      {/* Right Side */}
+
+
+
+
       <div className="contact-form">
         <h2>Send Message</h2>
 

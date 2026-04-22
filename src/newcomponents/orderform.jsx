@@ -9,7 +9,7 @@ function OrderForm() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    // 👉 bike data jo previous page se aata hai
+   
     const bikeDetails = location.state?.bikeDetails;
 
     // 👉 user data localStorage se
@@ -78,7 +78,7 @@ function OrderForm() {
             if (res.ok) {
                 toast.success("Booking Confirmed 🚀");
 
-                // 👉 2 sec baad redirect
+               
                 setTimeout(() => {
                     navigate("/");
                 }, 2000);
@@ -92,6 +92,15 @@ function OrderForm() {
 
         setLoading(false);
     };
+
+
+const getCurrentDateTime = () => {
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    return now.toISOString().slice(0, 16);
+};
+
+
 
     return (
         <div className="order-container">
@@ -124,6 +133,7 @@ function OrderForm() {
                     <input
                         type="datetime-local"
                         name="pickupDate"
+                        min={getCurrentDateTime()} 
                         onChange={handleInput}
                         required
                     />
@@ -132,6 +142,7 @@ function OrderForm() {
                     <input
                         type="datetime-local"
                         name="returnDate"
+                         min={dates.pickupDate || getCurrentDateTime()} 
                         onChange={handleInput}
                         required
                     />
@@ -142,7 +153,6 @@ function OrderForm() {
 
                 </form>
 
-                {/* RIGHT SIDE PAYMENT SUMMARY */}
                 <div className="summary-box">
 
                     <h3>Payment Summary</h3>
