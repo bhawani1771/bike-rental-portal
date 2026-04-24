@@ -90,7 +90,7 @@ function Productdetail() {
               {bike.stock > 0 ? "Available" : "Out of Stock"}
             </p>
 
-            <p><b>Location:</b> Sardarshahar</p>
+            <p><b>Location:</b> Jaipur</p>
 
           </div>
 
