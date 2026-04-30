@@ -35,6 +35,8 @@ function Contactus() {
   };
 
   return (
+    <div className="main-box">
+
     <div className="contact-main-wrapper">
       <h1 className="contact-title">Get in Touch</h1>
       
@@ -133,6 +135,7 @@ function Contactus() {
         </div>
 
       </div>
+    </div>
     </div>
   );
 }

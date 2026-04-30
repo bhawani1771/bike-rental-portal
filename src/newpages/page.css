@@ -9,7 +9,7 @@
 
 body{
   font-family:'Poppins',sans-serif;
-  background:#121212;
+  background:#121212 ;
   color:#eaeaea;
   overflow-x:hidden;
 }
@@ -53,6 +53,11 @@ body{
 .hero-overlay h1{
   font-size:2.8rem;
   color:#fff;
+}
+
+
+.main-box{
+  background-color: #121212;
 }
 
 .hero-overlay p{
