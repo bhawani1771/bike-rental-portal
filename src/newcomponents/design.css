@@ -13,7 +13,7 @@ html {
 /* --- Global Reset --- */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa !important;
 }
 
 
@@ -49,7 +49,7 @@ body {
     display: flex;
     align-items: center;
     gap: 50px;
-    margin-left: -65px;
+    margin-left: 0px;
 }
 
 

@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 function Auth() {
     const [isLogin, setIsLogin] = useState(true);
-    
-    const [info, setInfo] = useState({}); 
+
+    const [info, setInfo] = useState({});
     const navigate = useNavigate();
 
 
@@ -25,9 +25,9 @@ function Auth() {
 
 
         const dataToPost = {
-        ...info,
-        number: String(info.number) 
-    };
+            ...info,
+            number: String(info.number)
+        };
 
         if (!info.number || info.number.length !== 10) {
             return toast.error("Please enter valid 10-digit number");
@@ -48,10 +48,14 @@ function Auth() {
                 const userFound = users.find(u => u.number === info.number && u.password === info.password);
 
                 if (userFound) {
-                  localStorage.setItem("loggedInUser", JSON.stringify(userFound));
+                    localStorage.setItem("loggedInUser", JSON.stringify(userFound));
                     toast.success(`Welcome back, ${userFound.username}!`);
-                    setTimeout(() => navigate("/"), 2000);
-                    window.location.reload()
+
+                    setTimeout(() => {
+                        // navigate("/");
+                        window.location.href = "/";
+                    }, 1500);
+
                 } else {
                     toast.error("Incorrect number or password");
                 }
@@ -67,7 +71,7 @@ function Auth() {
                 if (res.ok) {
                     toast.success("Account Created , Please login now");
                     setInfo({});
-                    setIsLogin(true); 
+                    setIsLogin(true);
                 } else {
                     toast.warn("Something went wrong , Please check detail");
                 }
@@ -80,7 +84,7 @@ function Auth() {
     return (
         <div className="form-container">
             <ToastContainer theme="dark" position="top-center" autoClose={2000} />
-            
+
             <button className="back-btn" onClick={() => navigate("/")}>X</button>
 
             <form onSubmit={handleSubmit}>

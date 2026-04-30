@@ -1,153 +1,140 @@
 import React, { useState } from "react";
-import "./page.css";
+import { toast } from "react-hot-toast";
+import "./page.css"; // अपनी CSS फाइल यहाँ इम्पोर्ट करें
 
 function Contactus() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
-    message: "",
+    phone: "",
+    message: ""
   });
 
-  const [errors, setErrors] = useState({});
-  const [success, setSuccess] = useState("");
-
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const validate = () => {
-    let newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!formData.email.includes("@")) {
-      newErrors.email = "Invalid email";
-    }
-
-    if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required";
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-    }
-
-    return newErrors;
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const validationErrors = validate();
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length === 0) {
-      setSuccess("Message sent successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
+    try {
+      const response = await fetch("https://onn-bike-rental-backend.onrender.com/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-    } else {
-      setSuccess("");
+
+      if (response.ok) {
+        toast.success("Enquiry sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast.error("Failed to send enquiry.");
+      }
+    } catch (error) {
+      toast.error("Server error, please try again later.");
     }
   };
 
   return (
-    <div className="contact-container">
+    <div className="contact-main-wrapper">
+      <h1 className="contact-title">Get in Touch</h1>
       
-      {/* Left Side */}
-      <div className="contact-info">
-        <h2>Contact Info</h2>
-
-        <div className="info-box">
-          <h4>Address</h4>
-          <p>Jaipur, Rajasthan, India</p>
-        </div>
-
-        <div className="info-box">
-          <h4>Email</h4>
-          <p>support@example.com</p>
-        </div>
-
-        <div className="info-box">
-          <h4>Phone</h4>
-          <p>+91 9876543210</p>
-        </div>
-
-        <p className="info-desc">
-          Feel free to contact us anytime. We respond quickly.
-        </p>
-      </div>
-
-
-
-
-
-      <div className="contact-form">
-        <h2>Send Message</h2>
-
-        <form onSubmit={handleSubmit}>
+      <div className="contact-grid">
+        
+        {/* Left Side: Static Contact Info */}
+        <div className="contact-info-section">
+          <h3 className="section-subtitle">Contact Information</h3>
+          <p className="section-desc">
+            Have questions about our bike rentals? Our team is here to help you 24/7.
+          </p>
           
-          <div className="form-group">
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-            {errors.name && <span className="error">{errors.name}</span>}
+          <div className="info-details">
+            <div className="info-item">
+              <strong>📍 Address:</strong>
+              <span>123 Bike Street, Near City Center, Jaipur, Rajasthan</span>
+            </div>
+            <div className="info-item">
+              <strong>📞 Phone:</strong>
+              <span>+91 98765 43210</span>
+            </div>
+            <div className="info-item">
+              <strong>✉️ Email:</strong>
+              <span>support@onnbikes.com</span>
+            </div>
+            <div className="info-item">
+              <strong>⏰ Working Hours:</strong>
+              <span>Monday - Sunday (8:00 AM - 10:00 PM)</span>
+            </div>
           </div>
 
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="text"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            {errors.email && <span className="error">{errors.email}</span>}
+          <div className="map-container">
+            <iframe
+              title="Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.382562431!2d75.6504692!3d26.8854479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1700000000000"
+              className="google-map-iframe"
+              loading="lazy"
+            ></iframe>
           </div>
+        </div>
 
-          <div className="form-group">
-            <label>Subject</label>
-            <input
-              type="text"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-            />
-            {errors.subject && <span className="error">{errors.subject}</span>}
-          </div>
+        {/* Right Side: Contact Form */}
+        <div className="contact-form-section">
+          <h3 className="section-subtitle">Send us a Message</h3>
+          <form onSubmit={handleSubmit} className="contact-form">
+            
+            <div className="form-group">
+              <label>Full Name</label>
+              <input 
+                name="name" 
+                type="text" 
+                placeholder="Enter your name" 
+                value={formData.name} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+            
+            <div className="form-group">
+              <label>Email Address</label>
+              <input 
+                name="email" 
+                type="email" 
+                placeholder="Enter your Email" 
+                value={formData.email} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+            
+            <div className="form-group">
+              <label>Phone Number</label>
+              <input 
+                name="phone" 
+                type="number" 
+                placeholder="Enter your mobile no." 
+                value={formData.phone} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+            
+            <div className="form-group">
+              <label>Your Message</label>
+              <textarea 
+                name="message" 
+                placeholder="Type your message here" 
+                value={formData.message} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+            
+            <button type="submit" className="submit-btn">Submit Now</button>
+          </form>
+        </div>
 
-          <div className="form-group">
-            <label>Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-            />
-            {errors.message && <span className="error">{errors.message}</span>}
-          </div>
-
-          <button className="btn">Send Message</button>
-
-          {success && <p className="success">{success}</p>}
-        </form>
       </div>
     </div>
   );
 }
 
-export  {Contactus};
+export { Contactus };
