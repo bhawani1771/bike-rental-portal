@@ -24,15 +24,21 @@ function Navbar() {
       </div>
       
      <ul>
-        <li><NavLink to="/" className={location.pathname === "/" ? "active" : ""}>Home</NavLink></li>
-        <li><NavLink to="/listing" className={location.pathname === "/listing" ? "active" : ""}>Listing</NavLink></li>
-        <li><NavLink to="/user-management" className={location.pathname === "/user-management" ? "active" : ""}>Users</NavLink></li>
-        <li><NavLink to="/bookings" className={location.pathname === "/booking" ? "active" : ""}>Booking</NavLink></li>
-        <li><NavLink to="/review" className={location.pathname === "/review" ? "active" : ""}>Review</NavLink></li>
+        <li><NavLink to="/admin/" className={location.pathname === "/" ? "active" : ""}>Home</NavLink></li>
+        <li><NavLink to="/admin/listing" className={location.pathname === "/listing" ? "active" : ""}>Listing</NavLink></li>
+        <li><NavLink to="/admin/user-management" className={location.pathname === "/user-management" ? "active" : ""}>Users</NavLink></li>
+        <li><NavLink to="/admin/bookings" className={location.pathname === "/booking" ? "active" : ""}>Booking</NavLink></li>
+        <li><NavLink to="/admin/review" className={location.pathname === "/review" ? "active" : ""}>Review</NavLink></li>
      </ul>
     <button 
   className="logout-btn" 
   onClick={handleLogout}>Logout 🚪</button>
+
+ <button style={{marginTop:"10px"}}
+  className="logout-btn">
+< NavLink to="/" style={{textDecoration:"none" , color:"black"}}>User-panel</NavLink></button>
+
+
     </nav>
   );
 }

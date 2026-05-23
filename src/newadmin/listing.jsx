@@ -1,143 +1,340 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./adminpanel.css";
 import toast from "react-hot-toast";
 
 function Listings() {
-    const [showForm, setShowForm] = useState(false);
-    
-    // Edit mode check karne ke liye state
-    const [isEdit, setIsEdit] = useState(false); 
-    const [editId, setEditId] = useState(""); // Kis product ko edit karna hai uska ID
+  const [showForm, setShowForm] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [editId, setEditId] = useState("");
 
-    const [image, setImage] = useState("");
-    const [allListing, setAlllisting] = useState([]);
-    const [model, setModel] = useState("");
-    const [brand, setBrand] = useState("");
-    const [rate, setRate] = useState("");
-    const [km, setKm] = useState("");
-    const [stock, setStock] = useState("");
-    const [extracost, setExtracost] = useState("");
-    const [metatitle, setMetatitle] = useState("");
-    const [metadescription, setMetaDescription] = useState("");
-    const [metakeyword, setMetaKeywords] = useState("");
+  const [image, setImage] = useState("");
+  const [title, setTitle] = useState("");
+  const [brand, setBrand] = useState("");
+  const [price, setPrice] = useState("");
+  const [stock, setStock] = useState("");
+  const [desc, setDesc] = useState("");
+  const [kmh, setKmh] = useState("");
 
-    const apiurl = "https://onn-bike-rental-backend.onrender.com/api/listing";
+  const [metaTitle, setMetaTitle] = useState("");
+  const [metaDesc, setMetaDesc] = useState("");
+  const [metaKeywords, setMetaKeywords] = useState("");
 
-    async function fetchListing() {
-        const response = await fetch(apiurl);
-        const resdata = await response.json();
-        setAlllisting(resdata.reverse());
+  const [allListing, setAllListing] = useState([]);
+
+  const apiurl = "https://onn-bike-rental-backend.onrender.com/api/listing";
+
+  // GET DATA
+  async function fetchListing() {
+    try {
+      const response = await fetch(apiurl);
+      const data = await response.json();
+      setAllListing(data.reverse());
+    } catch (error) {
+      toast.error("Data Load Failed");
     }
+  }
 
-    useEffect(function () {
-        fetchListing();
-    }, []);
+  useEffect(() => {
+    fetchListing();
+  }, []);
 
-    // EDIT FUNCTION: Jab user Pencil icon dabaye
-    function handleEdit(item) {
-        setIsEdit(true);
-        setEditId(item._id);
-        setImage(item.image);
-        setModel(item.model);
-        setBrand(item.brand);
-        setRate(item.rate);
-        setKm(item.km);
-        setExtracost(item.extracost);
-        setStock(item.stock);
-        setMetatitle(item.meta?.title || "");
-        setMetaDescription(item.meta?.description || "");
-        setMetaKeywords(item.meta?.keywords || "");
-        setShowForm(true); // Form open karo
+  // EDIT
+  function handleEdit(item) {
+    setIsEdit(true);
+    setEditId(item._id);
+
+    // Old + New field support
+    setImage(item.image || "");
+    setTitle(item.title || item.model || "");
+    setBrand(item.brand || "");
+    setPrice(item.price || item.rate || "");
+    setStock(item.stock || "");
+    setDesc(item.desc || "");
+    setKmh(item.kmh || item.km || "");
+
+    setMetaTitle(item.metaTitle || item.metatitle || "");
+    setMetaDesc(item.metaDesc || item.metadescription || "");
+    setMetaKeywords(item.metaKeywords || item.metakeyword || "");
+
+    setShowForm(true);
+  }
+
+  // RESET
+  function resetForm() {
+    setImage("");
+    setTitle("");
+    setBrand("");
+    setPrice("");
+    setStock("");
+    setDesc("");
+    setKmh("");
+    setMetaTitle("");
+    setMetaDesc("");
+    setMetaKeywords("");
+
+    setShowForm(false);
+    setIsEdit(false);
+    setEditId("");
+  }
+
+  // ADD
+  async function postData(e) {
+    e.preventDefault();
+
+    const newData = {
+      image,
+      title,
+      brand,
+      price,
+      stock,
+      desc,
+      kmh,
+      metaTitle,
+      metaDesc,
+      metaKeywords,
+    };
+
+    const response = await fetch(apiurl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    });
+
+    if (response.ok) {
+      toast.success("Product Added");
+      fetchListing();
+      resetForm();
+    } else {
+      toast.error("Add Failed");
     }
+  }
 
-    // UPDATE FUNCTION: Jab user Update button dabaye
-    async function updateData(e) {
-        e.preventDefault();
-        const updatedInfo = { image, model, brand, rate, km, stock, extracost, 
-                             meta: { title: metatitle, description: metadescription, keywords: metakeyword } };
+  // UPDATE
+  async function updateData(e) {
+    e.preventDefault();
 
-        try {
-            const response = await fetch(`${apiurl}/${editId}`, {
-                method: "PUT", // Backend mein PUT route hona chahiye
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(updatedInfo)
-            });
+    const updatedData = {
+      image,
+      title,
+      brand,
+      price,
+      stock,
+      desc,
+      kmh,
+      metaTitle,
+      metaDesc,
+      metaKeywords,
+    };
 
-            if (response.ok) {
-                toast.success("Product Updated!");
-                fetchListing();
-                resetForm();
-            }
-        } catch (err) {
-            toast.error("Update failed!");
-        }
+    const response = await fetch(`${apiurl}/${editId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    if (response.ok) {
+      toast.success("Updated");
+      fetchListing();
+      resetForm();
+    } else {
+      toast.error("Update Failed");
     }
+  }
 
-    function resetForm() {
-        setShowForm(false);
-        setIsEdit(false);
-        setImage(""); setModel(""); setBrand(""); setRate(""); setKm(""); 
-        setExtracost(""); setStock(""); setMetatitle(""); 
-        setMetaDescription(""); setMetaKeywords("");
-    }
+  return (
+    <div className="listing-management-container">
 
-    async function postData(e) {
-        e.preventDefault();
-        // ... (Aapka existing postData code yahan waisa hi rahega)
-    }
+      {/* Header */}
+      <div className="top-bar">
+        <h1 style={{color:"rgb(56, 59, 78)"}}>Inventory Management</h1>
 
-    return (
-        <div className="listing-management-container">
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", color: "black" }}>
-                <h1>Inventory Management</h1>
-                <button onClick={() => { setShowForm(!showForm); setIsEdit(false); }} 
-                        style={{ padding: '10px 20px', background: showForm ? 'red' : 'green', color: 'white', border: 'none', borderRadius: '5px' }}>
-                    {showForm ? "Close Form" : "Add New Product"}
-                </button>
-            </div>
+        <button
+          className="add-btn"
+          onClick={() => setShowForm(true)}
+        >
+          Add Product
+        </button>
+      </div>
 
-            {showForm && (
-                <div className="my-form">
-                    <h2>{isEdit ? "Edit Product" : "Add New Product"}</h2>
-                    {/* Form submit par function change hoga */}
-                    <form onSubmit={isEdit ? updateData : postData}>
-                        <input type="text" placeholder="Paste Image URL here" value={image} onChange={(e) => setImage(e.target.value)} required />
-                        <input type="text" placeholder="Enter model name" value={model} onChange={(e) => setModel(e.target.value)} required />
-                        {/* ... baaki inputs wahi rahenge ... */}
-                        
-                        <button type="submit" style={{ background: 'orange', padding: '10px', width: '100%' }}>
-                            {isEdit ? "Update Product" : "Save Product"}
-                        </button>
-                    </form>
-                </div>
-            )}
+      {/* FORM */}
+      {showForm && (
+        <div className="my-form">
 
-            <div className="listing-in-container">
-                <table className="listing-table">
-                    {/* ... table header ... */}
-                    <tbody>
-                        {allListing.map((item) => (
-                            <tr key={item._id}>
-                                <td><img src={item.image} alt={item.model} style={{ width: "50px", height: "40px" }} /></td>
-                                <td>{item.model}</td>
-                                <td>{item.brand}</td>
-                                <td>{item.rate}</td>
-                                <td>{item.km}</td>
-                                <td>{item.extracost}p/km</td>
-                                <td>{item.stock}</td>
-                                <td>
-                                    {/* Edit button par handleEdit call hoga */}
-                                    <button className="edit-btn" onClick={() => handleEdit(item)}>✏️</button>
-                                    <button className="delete-btn"> 🗑 </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+          <div className="form-header">
+            <h2>{isEdit ? "Edit Product" : "Add Product"}</h2>
+<button
+  onClick={resetForm}
+  style={{
+    background: "red",
+    color: "white",
+    border: "none",
+    width: "35px",
+    height: "35px",
+    borderRadius: "50%",
+    fontSize: "18px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  }}
+>
+  X
+</button>
+          </div>
+
+          <form onSubmit={isEdit ? updateData : postData}>
+
+            <input
+              type="text"
+              placeholder="Image URL"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+              required
+            />
+
+            <input
+              type="text"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+
+            <input
+              type="text"
+              placeholder="Brand"
+              value={brand}
+              onChange={(e) => setBrand(e.target.value)}
+              required
+            />
+
+            <input
+              type="number"
+              placeholder="Price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+
+            <input
+              type="number"
+              placeholder="KM"
+              value={kmh}
+              onChange={(e) => setKmh(e.target.value)}
+              required
+            />
+
+            <input
+              type="number"
+              placeholder="Stock"
+              value={stock}
+              onChange={(e) => setStock(e.target.value)}
+              required
+            />
+
+            <input
+              type="text"
+              placeholder="Description"
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+            />
+
+            <input
+              type="text"
+              placeholder="Meta Title"
+              value={metaTitle}
+              onChange={(e) => setMetaTitle(e.target.value)}
+            />
+
+            <input
+              type="text"
+              placeholder="Meta Desc"
+              value={metaDesc}
+              onChange={(e) => setMetaDesc(e.target.value)}
+            />
+
+            <input
+              type="text"
+              placeholder="Meta Keywords"
+              value={metaKeywords}
+              onChange={(e) => setMetaKeywords(e.target.value)}
+            />
+
+            <button type="submit" className="save-btn">
+              {isEdit ? "Update Product" : "Save Product"}
+            </button>
+
+          </form>
         </div>
-    );
+      )}
+
+      {/* TABLE */}
+      <div className="table-wrapper">
+        <table className="listing-table">
+
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Brand</th>
+              <th>Price</th>
+              <th>KM</th>
+              <th>Stock</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {allListing.map((item) => (
+              <tr key={item._id}>
+
+                <td>
+                  <img
+                    src={item.image}
+                    alt=""
+                    style={{
+                      width: "70px",
+                      height: "50px",
+                      objectFit: "contain"
+                    }}
+                  />
+                </td>
+
+                {/* old + new field support */}
+                <td>{item.title || item.model}</td>
+
+                <td>{item.brand}</td>
+
+                <td>₹{item.price || item.rate}</td>
+
+                <td>{item.kmh || item.km}</td>
+
+                <td>{item.stock}</td>
+
+                <td>
+                  <button onClick={() => handleEdit(item)}>
+                    ✏️
+                  </button>
+
+                  <button>
+                    🗑️
+                  </button>
+                </td>
+
+              </tr>
+            ))}
+          </tbody>
+
+        </table>
+      </div>
+
+    </div>
+  );
 }
 
 export { Listings };

@@ -17,7 +17,7 @@ function AdminLogin() {
             localStorage.setItem("isAdmin", "true"); 
             
             setTimeout(() => {
-                window.location.href = "/"
+                window.location.href = "/admin/"
             }, 800);
         } else {
             toast.error("Galat Email ya Password!");

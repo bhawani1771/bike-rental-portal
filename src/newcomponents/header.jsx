@@ -9,11 +9,9 @@ function Header() {
 
   const [showProfile, setShowProfile] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-
   const [searchTerm, setSearchTerm] = useState("");
   const [allBikes, setAllBikes] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
-
   const [mode, setMode] = useState("view");
 
  
@@ -193,6 +191,7 @@ function Header() {
               {user ? user.username[0].toUpperCase() : "👤"}
             </button>
 
+{/* <Link to="/admin"><button className="admin-btn">Admin</button></Link> */}
             {showProfile && (
               <div className="profile-popup">
 
@@ -208,6 +207,8 @@ function Header() {
                       <div className="profile-actions">
                         <button onClick={() => setMode("edit")}>Edit Profile</button>
                         <button onClick={() => setMode("password")}>Change Password</button>
+<Link to="/admin"><button className="admin-btn">Admin</button></Link>
+
                         <button className="logout-btn" onClick={handleLogout}>Logout</button>
                       </div>
                     )}

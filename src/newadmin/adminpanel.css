@@ -128,6 +128,34 @@ nav.admin-sidebar {
 
 
 
+
+.my-form input,
+.my-form textarea,
+.my-form select {
+  color: #111 !important;
+  background: #ffffff !important;
+  caret-color: #111;
+}
+
+.my-form input::placeholder,
+.my-form textarea::placeholder {
+  color: #777 !important;
+}
+
+.my-form input:focus,
+.my-form textarea:focus {
+  color: #111 !important;
+  background: #fff !important;
+  outline: none;
+}
+
+
+
+
+
+
+
+
 /* --- Global Container --- */
 .listing-management-container {
     margin-left: 250px; /* Sidebar ke liye space */

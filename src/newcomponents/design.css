@@ -147,6 +147,13 @@ body {
     color: white;
 }
 
+
+.admin-btn{
+    width: 100%;
+}
+
+
+
 /* --- SEARCH SUGGESTIONS --- */
 .search-list {
     position: absolute;
