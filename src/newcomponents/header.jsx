@@ -207,7 +207,7 @@ function Header() {
                       <div className="profile-actions">
                         <button onClick={() => setMode("edit")}>Edit Profile</button>
                         <button onClick={() => setMode("password")}>Change Password</button>
-<Link to="/admin"><button className="admin-btn">Admin</button></Link>
+{/* <Link to="/admin"><button className="admin-btn">Admin</button></Link> */}
 
                         <button className="logout-btn" onClick={handleLogout}>Logout</button>
                       </div>
